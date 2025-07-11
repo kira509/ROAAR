@@ -1,153 +1,146 @@
 {
-  "name": "RAVEN-BOT",
-  "description": "A simple yet complicated WhatsApp bot, ♤Enjoy♡",
+  "name": "GenesisBot",
+  "description": "A powerful and customizable WhatsApp bot powered by Genesis AI ⚡",
   "keywords": [
-    "bot",
+    "genesisbot",
     "whatsapp",
-    "raven",
-    "whatsapp-stickers",
-    "anime",
     "whatsapp-bot",
-    "whatsapp-sticker-bot",
-    "whatsapp-botto",
-    "baileys",
-    "baileys-md",
-    "md-bot"
+    "genesis",
+    "stickers",
+    "ai",
+    "media",
+    "baileys-md"
   ],
-  "website": "https://github.com/HunterNick2/RAVEN-BOT#readme",
-  "repository": "https://github.com/HunterNick2/RAVEN-BOT.git",
+  "website": "https://github.com/kira509/ROOAR#readme",
+  "repository": "https://github.com/kira509/ROOAR.git",
   "logo": "https://files.catbox.moe/duv8ac.jpg",
   "success_url": "/",
   "env": {
     "PREFIX": {
-      "description": "Prefix of RAVEN-BOT Ex: . , / , # , & etc. Put any symbol or leave it blank",
+      "description": "Command prefix for GenesisBot (e.g., ., !, #)",
       "required": false
-
     },
     "DEV": {
-      "description": "Put any phone numbers you want to be bot owner without + or spaces \",\" Ex: 254114660061,27849061633  ",
+      "description": "Enter your phone number(s) as bot owner, without + or spaces (e.g., 254738701209)",
       "required": true
     },
     "ANTIDELETE": {
-      "description": "Input TRUE if you want bot to foward back deleted messages. The messages will be fowarded to your Pm, Message yourself.",
+      "description": "Set TRUE to auto-forward deleted messages to your PM",
       "value": "TRUE",
       "required": false
     },
-    
-    
     "AUTOREJECT_CALL": {
-      "description": "Put TRUE if you want bot to decline all incoming calls",
+      "description": "Set TRUE to auto-decline incoming WhatsApp calls",
       "value": "TRUE",
       "required": false
     },
     "ANTIFOREIGN": {
-      "description": "Input TRUE if you want bot to automatically remove foreigners who are not from your country code joining a group",
+      "description": "Set TRUE to remove users with different country codes from groups",
       "value": "FALSE",
       "required": false
     },
     "HEROKU_API": {
-      "description": "Put a Heroku api key here, will be required to update vars in your Dm",
+      "description": "Paste your Heroku API key here for advanced deployment control",
       "required": true
     },
     "BAD_WORD": {
-      "description": "List words separated witj commas that will be considered as bad and will trigger bot to kick. Example: fuck, pussy, hoe",
+      "description": "Comma-separated list of banned words (e.g., fuck,pussy,bitch)",
       "value": "fuck,pussy,slut,bitch,cock,stupid",
       "required": false
     },
     "BAD_WORD_KICK": {
-      "description": "Put here TRUE if you want the bot to automatically kick group members using words that you have listed as bad",
+      "description": "Set TRUE to auto-kick users who use banned words",
       "value": "TRUE",
       "required": false
     },
     "ANTITAG": {
-      "description": "Put TRUE if you want bot kick out unnecessary tags from a group, Not sure if its working eh!",
+      "description": "Set TRUE to prevent excessive tagging in groups",
       "required": false
     },
-      "AUTOREAD": {
-      "description": "Put here TRUE if you want bot to automatically bluetick messages in private chats",
+    "AUTOREAD": {
+      "description": "Set TRUE to auto-read private messages",
       "value": "FALSE",
       "required": true
-},
- "AUTOVIEW": {
-      "description": "Input TRUE if you want bot to automatically read status update",
+    },
+    "AUTOVIEW": {
+      "description": "Set TRUE to auto-view status updates",
       "value": "TRUE",
       "required": true
-},
- "WA_PRESENCE": {
-      "description": "Input either recording, typing, online, or leave it blank. This enables bot to simulate typing or recording or online status even if you're not online.",
+    },
+    "WA_PRESENCE": {
+      "description": "Options: 'typing', 'recording', 'online'. Simulate bot status.",
       "value": "recording",
       "required": true
-},
- "WELCOMEGOODBYE": {
-      "description": "Input TRUE if you want bot to welcome new members joining group or wave goodbye to members leaving a group.",
+    },
+    "WELCOMEGOODBYE": {
+      "description": "Set TRUE to enable welcome/goodbye group messages",
       "value": "FALSE",
       "required": false
-},
-   
- "ANTILINK": {
-      "description": "Input TRUE if you want bot to kick link senders only whatsapp group links",
+    },
+    "ANTILINK": {
+      "description": "Set TRUE to kick users who post WhatsApp group links",
       "value": "TRUE",
       "required": true
-},
- "ANTILINK_ALL": {
-      "description": "Input TRUE if you want bot to kick users sending any kind of link.",
+    },
+    "ANTILINK_ALL": {
+      "description": "Set TRUE to kick users who post any links",
       "value": "FALSE",
       "required": true
-},
- "ANTIBOT": {
-      "description": "Input TRUE if you want bot to kick other bots from group",
+    },
+    "ANTIBOT": {
+      "description": "Set TRUE to kick other bots from group chats",
       "required": false
-},
- "CODE": {
-      "description": "Input you country code here without + eg 254, it Will be used to Eliminate foreigners from the group once prompted.",
+    },
+    "CODE": {
+      "description": "Enter your country code (e.g., 254)",
       "value": "254",
       "required": true
-},
- "SESSION": {
-      "description": "Paste your Session id you received after linking here, as it is required for authenticationn. important!",
+    },
+    "SESSION": {
+      "description": "Paste the generated session ID for login",
       "required": true
-},
- "MODE": {
-      "description": "Input PRIVATE if you don't want other people to use your bot",
+    },
+    "MODE": {
+      "description": "PRIVATE for owner-only access, PUBLIC for global access",
       "value": "PUBLIC",
       "required": true
     },
-    
- "AUTOBIO": {
-      "description": "Input TRUE if you want bot to autoupdate its about with current time and date.",
+    "AUTOBIO": {
+      "description": "Set TRUE to auto-update bio with date/time",
       "value": "TRUE",
       "required": false
-},
- "APP_NAME": {
-      "description": "Input your app name that you put above, Must be in small letters.",
+    },
+    "APP_NAME": {
+      "description": "Your app name in lowercase",
+      "value": "genesisbot",
       "required": true
-},
- "STICKER_AUTHOR": {
-      "description": "Input sticker data for author",
-      "value": "RAVEN-BOT",
+    },
+    "STICKER_AUTHOR": {
+      "description": "Sticker author label",
+      "value": "GenesisBot",
       "required": false
-},
- "STICKER_PACKNAME": {
-      "description": "Input sticker data for packname",
-      "value": "RAVEN-BOT",
+    },
+    "STICKER_PACKNAME": {
+      "description": "Sticker pack name",
+      "value": "Genesis Pack",
       "required": false
-},
- "GPT_INBOX": {
-      "description": "Input TRUE if you want bot to autoreply inbox messages using openai API. For now not stable may cause spam!",
+    },
+    "GPT_INBOX": {
+      "description": "Set TRUE to auto-reply private messages with AI (unstable)",
       "required": false
-},
-  "MENU_LINK": {
-      "description": "Paste your Image Url here or use the default one, This will display it on your menu if you set MENU_TYPE as IMAGE.",
+    },
+    "MENU_LINK": {
+      "description": "Image URL for menu appearance",
       "value": "https://files.catbox.moe/duv8ac.jpg",
-      "required": false 
-    },  
-  "MENU_TYPE": {
-      "description": "Input either VIDEO, LINK or IMAGE. This will allow bot to display different dynamic menu types",
+      "required": false
+    },
+    "MENU_TYPE": {
+      "description": "IMAGE, VIDEO, or LINK for menu format",
       "value": "IMAGE",
-      "required": false 
+      "required": false
     },
     "AUTOLIKE_STATUS": {
-      "description": "input TRUE if you want bot to autolike status updates. This will only work if autostatus view is TRUE",
+      "description": "Set TRUE to auto-like statuses (requires AUTOVIEW)",
       "value": "TRUE",
       "required": false
     }
@@ -163,4 +156,4 @@
       "url": "https://github.com/heroku/heroku-buildpack-activestorage-preview"
     }
   ]
-    }
+}
