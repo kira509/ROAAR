@@ -1,4 +1,9 @@
 # 𝗥𝗢𝗢𝗔𝗥-𝗕𝗢𝗧
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kira509/ROOAR/main/assets/roar-banner.jpg" width="100%" alt="ROOAR Banner" />
+</p>
+
 <div align="center">
   <a href="https://git.io/typing-svg">
     <img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=50&pause=1000&color=F70000&center=true&width=910&height=100&lines=WELCOME+TO+ROOAR+BOT;A+POWERFUL+WHATSAPP+AI+BOT;MADE+TO+ASSIST+AND+ENTERTAIN;FORK+THIS+REPO+AND+START+NOW" alt="Typing SVG" />
