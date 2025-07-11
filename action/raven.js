@@ -22,13 +22,14 @@ const advice = require("badadvice");
 const {c, cpp, node, python, java} = require('compile-run');
 const acrcloud = require("acrcloud"); 
 const ytdl = require("ytdl-core");
-const Client = new Genius.Client("TUoAEhL79JJyU-MpOsBDkFhJFWFH28nv6dgVgPA-9R1YRwLNP_zicdX2omG2qKE8gYLJat5F5VSBNLfdnlpfJg"); // Scrapes if no key is provided
+const Client = new Genius.Client(""); // Optional key
 const { downloadYouTube, downloadSoundCloud, downloadSpotify, searchYouTube, searchSoundCloud, searchSpotify } = require('../action/wee');
 const { TelegraPh, UploadFileUgu, webp2mp4File, floNime } = require('../lib/ravenupload');
 const { Configuration, OpenAI } = require("openai");
 const { menu, menulink, autoread, mode, antidel, antitag, appname, herokuapi, gptdm, botname, antibot, prefix, author, packname, mycode, admin, botAdmin, dev, group, bad, owner, NotOwner, antilink, antilinkall, wapresence, badwordkick } = require("../set.js");
 const { smsg, runtime, fetchUrl, isUrl, processTime, formatp, tanggal, formatDate, getTime,  sleep, generateProfilePicture, clockString, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom } = require('../lib/ravenfunc');
 const { exec, spawn, execSync } = require("child_process");
+
 module.exports = raven = async (client, m, chatUpdate, store) => {
   try {
     var body =
@@ -47,9 +48,7 @@ module.exports = raven = async (client, m, chatUpdate, store) => {
         : "";
     var budy = typeof m.text == "string" ? m.text : "";
     var msgR = m.message.extendedTextMessage?.contextInfo?.quotedMessage;  
-//========================================================================================================================//
-//========================================================================================================================//	  
-    const Heroku = require("heroku-client");  
+
     const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();
     const args = body.trim().split(/ +/).slice(1);
     const pushname = m.pushName || "No Name";
@@ -63,7 +62,7 @@ module.exports = raven = async (client, m, chatUpdate, store) => {
     const reply = m.reply;
     const sender = m.sender;
     const mek = chatUpdate.messages[0];
-//========================================================================================================================//	  
+
     const getGroupAdmins = (participants) => { 
        let admins = []; 
        for (let i of participants) { 
@@ -71,48 +70,44 @@ module.exports = raven = async (client, m, chatUpdate, store) => {
        } 
        return admins || []; 
      };
-//========================================================================================================================//
-//========================================================================================================================//	  
+
     const nicki = (m.quoted || m); 
     const quoted = (nicki.mtype == 'buttonsMessage') ? nicki[Object.keys(nicki)[1]] : (nicki.mtype == 'templateMessage') ? nicki.hydratedTemplate[Object.keys(nicki.hydratedTemplate)[1]] : (nicki.mtype == 'product') ? nicki[Object.keys(nicki)[0]] : m.quoted ? m.quoted : m; 
 
     const color = (text, color) => {
       return !color ? chalk.green(text) : chalk.keyword(color)(text);
     };
-//========================================================================================================================//	  
+
     const mime = (quoted.msg || quoted).mimetype || "";
     const qmsg = (quoted.msg || quoted);
     const cmd = body.startsWith(prefix);
     const badword = bad.split(",");
-//========================================================================================================================//		      
-//========================================================================================================================//	      
+
     const groupMetadata = m.isGroup ? await client.groupMetadata(m.chat).catch((e) => { }) : "";  
     const groupName = m.isGroup && groupMetadata ? await groupMetadata.subject : "";  
     const participants = m.isGroup && groupMetadata
-  ? groupMetadata.participants
-      .filter(p => p.pn)
-      .map(p => p.pn)
-  : [];
+      ? groupMetadata.participants.filter(p => p.pn).map(p => p.pn)
+      : [];
     const groupAdmin = m.isGroup
-  ? groupMetadata.participants
-      .filter(p => p.admin && p.pn)
-      .map(p => p.pn)
-  : [];
+      ? groupMetadata.participants.filter(p => p.admin && p.pn).map(p => p.pn)
+      : [];
     const isBotAdmin = m.isGroup ? groupAdmin.includes(botNumber) : false; 
-	const groupSender = m.isGroup && groupMetadata
-  ? (() => {
-      const found = groupMetadata.participants.find(p => 
-        p.id === sender || client.decodeJid(p.id) === client.decodeJid(sender)
-      );
-      return found?.pn || sender;
-    })()
-  : sender;
-     const isAdmin = m.isGroup ? groupAdmin.includes(groupSender) : false;
-     const Owner = owner.map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(groupSender)	
-     const Dev = '254114660061'.split(",");
-     const date = new Date()  
-     const timestamp = speed(); 
-     const Rspeed = speed() - timestamp 
+    const groupSender = m.isGroup && groupMetadata
+      ? (() => {
+          const found = groupMetadata.participants.find(p => 
+            p.id === sender || client.decodeJid(p.id) === client.decodeJid(sender)
+          );
+          return found?.pn || sender;
+        })()
+      : sender;
+
+    const isAdmin = m.isGroup ? groupAdmin.includes(groupSender) : false;
+    const Owner = owner.map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(groupSender)	
+    const Dev = ['254738701209']; // ✅ Your number here
+    const date = new Date();  
+    const timestamp = speed(); 
+    const Rspeed = speed() - timestamp;
+
 //========================================================================================================================//
 //========================================================================================================================//
 const baseDir = 'message_data';
