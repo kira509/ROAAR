@@ -1,86 +1,115 @@
-# 𝗥𝗔𝗩𝗘𝗡-𝗕𝗢𝗧
+# 𝗥𝗢𝗢𝗔𝗥-𝗕𝗢𝗧
 <div align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=50&pause=1000&color=1BAFBAFF&center=true&width=910&height=100&lines=HOLLA+THIS+IS+RAVEN-BOT;MULTI+DEVICE+WHATSAPP+BOT;MADE+TO+HELP+WHATSAPP+USERS;STAR+AND+FORK+THE+REPO" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=50&pause=1000&color=F70000&center=true&width=910&height=100&lines=WELCOME+TO+ROOAR+BOT;A+POWERFUL+WHATSAPP+AI+BOT;MADE+TO+ASSIST+AND+ENTERTAIN;FORK+THIS+REPO+AND+START+NOW" alt="Typing SVG" />
   </a>
-</p>
+</div>
   
 <p align="center">
 
-[![Nick Hunter](https://github.com/HunterNick2.png?lenght=50width=50)](https://github.com/HunterNick2)
+[![kira509](https://github.com/kira509.png?size=100)](https://github.com/kira509)
 </p>
+
 <p align="center">
-  <a href="#"><img src="http://readme-typing-svg.herokuapp.com?color=d1fa02&center=true&vCenter=true&multiline=false&lines=RAVEN+WHATSAPP+BOT" alt="">
+<a href="#"><img title="Creator" src="https://img.shields.io/badge/Creator-kira509-blue.svg?style=for-the-badge&logo=github"></a>
 </p>
+
 <p align="center">
-<a href="#"><img title="Creator" src="https://img.shields.io/badge/Creator-𝗡𝗶𝗰𝗸_𝗛𝘂𝗻𝘁𝗲𝗿-blue.svg?style=for-the-badge&logo=github"></a>
+<a href="https://github.com/kira509?tab=followers"><img title="Followers" src="https://img.shields.io/github/followers/kira509?label=Followers&style=social"></a>
+<a href="https://github.com/kira509/ROOAR/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/kira509/ROOAR?&style=social"></a>
+<a href="https://github.com/kira509/ROOAR/network/members"><img title="Forks" src="https://img.shields.io/github/forks/kira509/ROOAR?style=social"></a>
+<a href="https://github.com/kira509/ROOAR/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/kira509/ROOAR?label=Watchers&style=social"></a>
 </p>
+
+---
+
+## 📞 Contact Me
+
 <p align="center">
-<a href="https://github.com/HunterNick2?tab=followers"><img title="Followers" src="https://img.shields.io/github/followers/HunterNick2?label=Followers&style=social"></a>
-<a href="https://github.com/HunterNick2/RAVEN-BOT/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/HunterNick2/RAVEN-BOT?&style=social"></a>
-<a href="https://github.com/HunterNick2/RAVEN-BOT/network/members"><img title="Fork" src="https://img.shields.io/github/forks/HunterNick2/RAVEN-BOT?style=social"></a>
-<a href="https://github.com/HunterNick2/RAVEN-BOT/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/HunterNick2/RAVEN-BOT?label=Watching&style=social"></a>
+<a href="https://wa.me/254738701209?text=Hi+kira,+I+need+help+with+ROOAR+Bot"><img src="https://img.shields.io/badge/Chat-OnWhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /></a>
 </p>
- 
 
-## ` Contact me`
+---
+
+## 🤖 About ROOAR Bot
+
+> ROOAR is a multi-device WhatsApp bot created with Node.js and the Baileys MD library. It's designed for automation, AI chatting, group management, media downloading, and fun features—all in one!
+
+- Powered by [Baileys](https://github.com/WhiskeySockets/Baileys)
+- Easy to deploy and extend
+- Packed with features and plug-and-play commands
+
+---
+
+## ⚠️ Disclaimer
+
+- Modifying the bot structure is at your own risk.
+- We do not provide support for heavily modified forks.
+- Do not delete credits — feel free to add your name **next to** the original or rebranded credits.
+
+---
+
+## 🚀 Features
+
+- ✅ WhatsApp Multi-Device support
+- ⚙️ Group & admin commands
+- 📥 Media downloader (YouTube, TikTok, etc.)
+- 🤖 AI Chat (OpenAI, Gemini, Bard)
+- 🧠 Text-to-speech and voice features
+- 🎭 Anonymous Chat & fun plugins
+- 🖼️ Sticker maker with metadata
+- 🔒 Owner-only commands and pairing system
+
+---
+
+## 🔧 Getting Started
+
+### `🔁 Fork This Repo`
 
 <p align="center">
+<a href="https://github.com/kira509/ROOAR/fork"><img src="https://img.shields.io/badge/Fork--this--Repo-purple?style=for-the-badge&logo=github" /></a>
+</p>
 
-<a href="https://api.whatsapp.com/send?phone=254114660061&text=Hello+Raven+dev+i+need+your+Help+on..."><img src="https://img.shields.io/badge/Contact-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+---
 
+### `🌐 Pair on Render`
 
-***This bot is created with the help of NodeJS and uses [Baileys](https://github.com/whiskeysockets/Baileys)***
-
-
-## DISCLAIMER
-- Modifying the bot structure is at your own risk. We won't offer technical support in case of errors resulting.
-
-- Do not delete the credits given,  you can add yourself instead.
-
-## FEATURES
-This is a highly customisable simple whatsapp bot with group management features and few media commands and chatgpt courtesy of Openai.
-
-Our AI features use random APIs to run, so sometimes they may be down.
-
- SET-UP
-
-## ` Fork this repo`
-<p align="centre">
-<a href="https://github.com/HunterNick2/RAVEN-BOT/fork"><img src="https://img.shields.io/badge/Fork%20Create-purple?style=for-the-badge&logo=github" alt="FORK RAVEN-BOT" width="160"></a>
-<p/>
-
-  
-## ` Pair onrender`
-<p align="centre">
-<a href="https://pairing-raven.onrender.com"><img height= "37" title="Author" src="https://img.shields.io/badge/Session-green?style=for-the-badge&logo=render"></a>
-<p/>
-            
-
-###  ` Deploy to Heroku`
 <p align="center">
-     <a href="https://verify-me-umber.vercel.app/">
-       <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku"/>
-     </a>
- </p>
- 
+<a href="https://pairing-rooar.onrender.com"><img height="37" title="Pairing Page" src="https://img.shields.io/badge/Generate-PairCode-green?style=for-the-badge&logo=whatsapp" /></a>
+</p>
 
-    
+---
 
-- Fill in the required variables into your hosting site for bot to work.
- </h2>
-     
+### `☁️ Deploy to Heroku`
 
-    
- 
+<p align="center">
+<a href="https://heroku.com/deploy?template=https://github.com/kira509/ROOAR"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku"/></a>
+</p>
 
+---
 
+## 📂 Project Structure
 
+- `index.js` - Bot launcher
+- `lib/` - Core helper functions
+- `src/` - Message handlers and plugin system
+- `session/` - Auth session folder
+- `config.js` - Bot settings
 
+---
 
-## License
+## 🪪 License
 
-[MIT License](https://github.com/HunterNick2/RAVEN-BOT/blob/main/LICENSE)
+[MIT License](https://github.com/kira509/ROOAR/blob/main/LICENSE)
 
-Copyright (c) 2025 RAVEN-BOT 
+---
 
+## ⭐ Credits
+
+- Base inspired by [Hisoka-Morou](https://github.com/DikaArdnt/Hisoka-Morou)
+- Forked and Rebuilt from [RAVEN-BOT](https://github.com/HunterNick2/RAVEN-BOT)
+- Rebranded and improved by [kira509](https://github.com/kira509)
+
+---
+
+> ❤️ Don't forget to leave a ⭐ on the repo if you found this helpful!
