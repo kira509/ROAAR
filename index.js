@@ -1,1 +1,61 @@
-var _0x41dafc=_0x59fe;function _0x59fe(_0x1b77f6,_0x5b68f6){var _0x1518ba=_0x1518();return _0x59fe=function(_0x59fe07,_0x499c5d){_0x59fe07=_0x59fe07-0xd7;var _0x311863=_0x1518ba[_0x59fe07];return _0x311863;},_0x59fe(_0x1b77f6,_0x5b68f6);}(function(_0x1b1e29,_0x1fd109){var _0x2e6570=_0x59fe,_0xfdb84=_0x1b1e29();while(!![]){try{var _0x5a61fc=-parseInt(_0x2e6570(0xd7))/0x1+parseInt(_0x2e6570(0xe0))/0x2+parseInt(_0x2e6570(0xd8))/0x3*(-parseInt(_0x2e6570(0xde))/0x4)+parseInt(_0x2e6570(0xdc))/0x5+parseInt(_0x2e6570(0xd9))/0x6+-parseInt(_0x2e6570(0xda))/0x7+-parseInt(_0x2e6570(0xdd))/0x8*(-parseInt(_0x2e6570(0xdf))/0x9);if(_0x5a61fc===_0x1fd109)break;else _0xfdb84['push'](_0xfdb84['shift']());}catch(_0x1e12d5){_0xfdb84['push'](_0xfdb84['shift']());}}}(_0x1518,0x6b881),require(_0x41dafc(0xdb)));function _0x1518(){var _0x2c8138=['3981gUcacB','3286242wPKNBV','5792745pyCZWZ','./action/index','3978075vQoRHo','95048JHyicz','28XIxmlZ','324lBIWBX','275236drbPBN','631383PMwxJc'];_0x1518=function(){return _0x2c8138;};return _0x1518();}
+const { Boom } = require("@hapi/boom");
+const makeWASocket = require("@whiskeysockets/baileys").default;
+const {
+    useMultiFileAuthState,
+    DisconnectReason,
+    fetchLatestBaileysVersion,
+} = require("@whiskeysockets/baileys");
+const pino = require("pino");
+const fs = require("fs");
+const path = require("path");
+
+const startGenesisBot = async () => {
+    const { version, isLatest } = await fetchLatestBaileysVersion();
+    const { state, saveCreds } = await useMultiFileAuthState("auth");
+
+    const sock = makeWASocket({
+        logger: pino({ level: "silent" }),
+        printQRInTerminal: true,
+        auth: state,
+        browser: ["GenesisBot", "Chrome", "1.0.0"],
+        version,
+    });
+
+    // connection status
+    sock.ev.on("connection.update", async (update) => {
+        const { connection, lastDisconnect } = update;
+
+        if (connection === "close") {
+            const shouldReconnect =
+                lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut;
+            console.log("Connection closed. Reconnecting: ", shouldReconnect);
+
+            if (shouldReconnect) {
+                startGenesisBot();
+            }
+        } else if (connection === "open") {
+            console.log("✅ GenesisBot is now connected!");
+        }
+    });
+
+    // listen for messages
+    sock.ev.on("messages.upsert", async ({ messages, type }) => {
+        if (type !== "notify") return;
+        const msg = messages[0];
+        if (!msg.message) return;
+
+        const sender = msg.key.remoteJid;
+        const messageText = msg.message.conversation || msg.message.extendedTextMessage?.text;
+
+        console.log(`📩 Message from ${sender}: ${messageText}`);
+
+        if (messageText === "!ping") {
+            await sock.sendMessage(sender, { text: "🏓 Pong!" });
+        }
+    });
+
+    // save session credentials
+    sock.ev.on("creds.update", saveCreds);
+};
+
+startGenesisBot();
