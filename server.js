@@ -26,6 +26,9 @@ app.get("/pair", async (req, res) => {
   }
 });
 
+// Auto-start bot once on server boot
+startSocket().catch(err => console.error("❌ Bot failed to start:", err));
+
 app.listen(PORT, () => {
   console.log(`🌐 Express server running at http://localhost:${PORT}`);
 });
