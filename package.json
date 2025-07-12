@@ -1,26 +1,28 @@
 {
-  "name": "genesisbot",
+  "name": "havoc-roaar",
   "version": "1.0.0",
-  "description": "GenesisBot - WhatsApp Multi-Device Bot",
-  "main": "server.js",
+  "description": "GenesisBot - WhatsApp Multi-Device Bot with Puppeteer Pair Code",
+  "main": "bot.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node server.js"
+    "start": "node bot.js"
   },
   "keywords": [
     "genesisbot",
     "whatsapp-bot",
     "baileys",
+    "puppeteer",
+    "pair-code",
     "multi-device",
-    "whatsapp",
     "ai-bot"
   ],
   "author": "Kira509",
   "license": "MIT",
   "dependencies": {
-    "@whiskeysockets/baileys": "git+https://github.com/McrayNick/Baileys.git",
+    "@whiskeysockets/baileys": "^6.6.0",
     "@hapi/boom": "^10.0.0",
-    "pino": "^7.0.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "pino": "^8.0.0",
+    "puppeteer": "^21.3.8"
   }
 }
