@@ -773,7 +773,7 @@ client.sendMessage(m.chat, {
                                 title: `GENESIS_BOT`,
                                 body: `${runtime(process.uptime())}`,
                                 thumbnail: fs.readFileSync('./Media/Raven.jpg'),
-                                sourceUrl: 'https://wa.me/254738701209?text=Hello+Raven+dev+I+need+a+bot',
+                                sourceUrl: 'https://wa.me/254738701209?text=Hello+ROAAR+dev+I+need+a+bot',
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -1882,7 +1882,7 @@ m.reply("*Wait a moment...*");
 //========================================================================================================================//		      
 		      case 'child': {	    		     
 		      if (!text || text == "") {
-    m.reply("Example usage: " + prefix + "Child Raven");
+    m.reply("Example usage: " + prefix + "Child ROAAR");
     return;
   } 
   try {
@@ -1963,7 +1963,7 @@ break;
         const fact = response.data.text;
 
         const funFact = `
- *RAVEN-MD RANDOM FUNFACT* 
+ *ROAAR-MD RANDOM FUNFACT* 
 
 ${fact}
 
@@ -2474,7 +2474,7 @@ if (!args[0] || !args[0].includes('chat.whatsapp.com')) return m.reply("Invalid 
       await client.groupSettingUpdate(groupId, "announcement");
       await client.removeProfilePicture(groupId);
       await client.groupUpdateSubject(groupId, "𝗧𝗵𝗶𝘀 𝗴𝗿𝗼𝘂𝗽 𝗶𝘀 𝗻𝗼 𝗹𝗼𝗻𝗴𝗲𝗿 𝗮𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 🚫");
-      await client.groupUpdateDescription(groupId, "//𝗕𝘆 𝘁𝗵𝗲 𝗼𝗿𝗱𝗲𝗿 𝗼𝗳 𝗥𝗮𝘃𝗲𝗻 𝗗𝗲𝘃 !");
+      await client.groupUpdateDescription(groupId, "//𝗕𝘆 𝘁𝗵𝗲 𝗼𝗿𝗱𝗲𝗿 𝗼𝗳 𝗥OAAR 𝗗𝗲𝘃 !");
       await client.groupRevokeInvite(groupId);
 
       await client.sendMessage(
@@ -2584,7 +2584,7 @@ const imageurl = `https://some-random-api.com/canvas/misc/tweet?displayname=${en
 
 
 
-await client.sendMessage(m.chat, { image: { url: imageurl}, caption: `𝗖𝗼𝗻𝘃𝗲𝗿𝘁𝗲𝗱 𝗯𝘆 𝗥𝗔𝗩𝗘𝗡-𝗕𝗢𝗧`}, { quoted: m}) 
+await client.sendMessage(m.chat, { image: { url: imageurl}, caption: `𝗖𝗼𝗻𝘃𝗲𝗿𝘁𝗲𝗱 𝗯𝘆 GENESIS-𝗕𝗼𝘁�`}, { quoted: m}) 
 
 	}
 	 break;
@@ -3118,7 +3118,8 @@ if (isTele) {
               
                 client.sendMessage(m.chat, {
                     sticker: {
-                        url: `https://api.lolhuman.xyz/api/attp?apikey=cde5404984da80591a2692b6&text=${q}`
+                       url: `https://api.lolhuman.xyz/api/attp?apikey=cde5404984da80591a2692b6&text=${encodeURIComponent(q)}`
+
                     }
                 }, {
                     quoted: m
@@ -3200,7 +3201,7 @@ if (!text) throw 'Provide a valid Bot Baileys Function to evaluate'
     if (!isBotAdmin) throw botAdmin;
     if (!isAdmin) throw admin;
     if (!m.isGroup) throw group;		      
-if (!q || isNaN(q)) return m.reply("provide number to be added in this format.\n\nadd 254114660061");
+if (!q || isNaN(q)) return m.reply("provide number to be added in this format.\n\nadd 254738701209");
 try {
         const userToAdd = `${q}@s.whatsapp.net`;  // Format the phone number
         // Add the user to the group
@@ -3272,7 +3273,7 @@ case "faker": {
     } else if (args[0] == "-x") {
       setTimeout(() => {
         client.sendMessage(m.chat, {
-          text: `𝙽𝚘𝚠 𝚁𝚊𝚟𝚎𝚗 𝚠𝚒𝚕𝚕 𝚛𝚎𝚖𝚘𝚟𝚎 ${_0x2f8982.length} 𝙵𝚊𝚔𝚎 𝙰𝚌𝚌𝚘𝚞𝚗𝚝𝚜 𝚏𝚛𝚘𝚖 𝚝𝚑𝚒𝚜 𝚐𝚛𝚘𝚞𝚙.\n\n𝙶𝚘𝚘𝚍𝚋𝚢𝚎👋 𝙵𝚊𝚔𝚎 𝚙𝚎𝚘𝚙𝚕𝚎.`
+          text: `𝙽𝚘𝚠 𝚁OOAR 𝚠𝚒𝚕𝚕 𝚛𝚎𝚖𝚘𝚟𝚎 ${_0x2f8982.length} 𝙵𝚊𝚔𝚎 𝙰𝚌𝚌𝚘𝚞𝚗𝚝𝚜 𝚏𝚛𝚘𝚖 𝚝𝚑𝚒𝚜 𝚐𝚛𝚘𝚞𝚙.\n\n𝙶𝚘𝚘𝚍𝚋𝚢𝚎👋 𝙵𝚊𝚔𝚎 𝚙𝚎𝚘𝚙𝚕𝚎.`
         }, {
           quoted: m
         });
@@ -3463,7 +3464,7 @@ m.reply("𝗣𝗲𝗻𝗱𝗶𝗻𝗴 𝗣𝗮𝗿𝘁𝗶𝗰𝗶𝗽𝗮𝗻�
      });  
      let baseUR = "/apps/" + appname;  
      let h9 = await heroku.get(baseUR + '/config-vars');  
-     let stoy = '*𝗕𝗲𝗹𝗼𝘄 𝗔𝗿𝗲 𝗛𝗲𝗿𝗼𝗸𝘂 𝗩𝗮𝗿𝗶𝗮𝗯𝗹𝗲𝘀 𝗙𝗼𝗿 𝗥𝗔𝗩𝗘𝗡-𝗠𝗗:*\n\n';  
+     let stoy = '*𝗕𝗲𝗹𝗼𝘄 𝗔𝗿𝗲 𝗛𝗲𝗿𝗼𝗸𝘂 𝗩𝗮𝗿𝗶𝗮𝗯𝗹𝗲𝘀 𝗙𝗼𝗿 ROAAR-𝗠𝗗:*\n\n';  
      for ( vrt in h9) { // Added 'const' to declare 'vr' 
          stoy += vrt + '=' + h9[vrt] + '\n\n'; // Fixed variable name 'str' to 'sto' 
      }  
@@ -3491,7 +3492,7 @@ case "remove": case "kick": {
         let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : null;
         const parts = users.split('@')[0];
 
-if (users == "254114660061@s.whatsapp.net") return m.reply("It's an Owner Number! 😡");
+if (users == "254738701209@s.whatsapp.net") return m.reply("It's an Owner Number! 😡");
 
 	  if (users  == client.decodeJid(client.user.id)) throw 'I cannot remove Myself 😡';
 
@@ -3855,7 +3856,7 @@ break;
 //========================================================================================================================//		      
  case 'sc': case 'script': case 'repo':
 
- client.sendMessage(m.chat, { image: { url: `https://telegra.ph/file/416c3ae0cfe59be8db011.jpg` }, caption: ` Hello👋 *${pushname}*, 𝗕𝗲𝗹𝗼𝘄 𝗶𝘀 𝗥𝗔𝗩𝗘𝗡-𝗕𝗢𝗧 𝗴𝗶𝘁𝗵𝘂𝗯 𝗿𝗲𝗽𝗼𓅂\n\nFork and maybe give us a star🌟.\n\n https://github.com/HunterGenesis2/RAVEN-BOT\n\nLink with your whatsapp using pairing link below\n\nhttps://pairing-raven.onrender.com\n\nCopy the session and paste it on the SESSION string, Fill in the other required Variables before Deploy\n\nEnjoy and have fun with the Bot\n\n𝗠𝗮𝗱𝗲 𝗼𝗻 𝗲𝗮𝗿𝘁𝗵 𝗯𝘆 𝗛𝘂𝗺𝗮𝗻𝘀 !`},{quoted : m });
+ client.sendMessage(m.chat, { image: { url: `https://telegra.ph/file/416c3ae0cfe59be8db011.jpg` }, caption: ` Hello👋 *${pushname}*, 𝗕𝗲𝗹𝗼𝘄 𝗶𝘀 𝗥OAAR-𝗕𝗢𝗧 𝗴𝗶𝘁𝗵𝘂𝗯 𝗿𝗲𝗽𝗼𓅂\n\nFork and maybe give us a star🌟.\n\n https://github.com/HunterGenesis2/RAVEN-BOT\n\nLink with your whatsapp using pairing link below\n\nhttps://pairing-raven.onrender.com\n\nCopy the session and paste it on the SESSION string, Fill in the other required Variables before Deploy\n\nEnjoy and have fun with the Bot\n\n𝗠𝗮𝗱𝗲 𝗼𝗻 𝗲𝗮𝗿𝘁𝗵 𝗯𝘆 𝗛𝘂𝗺𝗮𝗻𝘀 !`},{quoted : m });
 
    break;
                                                   
@@ -4171,25 +4172,77 @@ const Buffer = await stickerResult.toBuffer();
 break;
 
 //========================================================================================================================//		      
-          case "dp": { 
- try { 
- ha = m.quoted.sender; 
- qd = await client.getName(ha); 
- pp2 = await client.profilePictureUrl(ha,'image'); 
- } catch {  
- pp2 = 'https://tinyurl.com/yx93l6da'; 
- } 
-  if (!m.quoted) throw `Tag a user!`; 
- bar = `Profile Picture of ${qd}`; 
- client.sendMessage(m.chat, { image: { url: pp2}, caption: bar, fileLength: "999999999999"}, { quoted: m}); 
- } 
- break;
+         case "dp": {
+    if (!m.quoted) throw "⚠️ Tag a user to get their profile picture.";
+    try {
+        const target = m.quoted.sender;
+        const name = await client.getName(target);
+        let pfp = await client.profilePictureUrl(target, 'image');
+        await client.sendMessage(m.chat, {
+            image: { url: pfp },
+            caption: `🖼️ Profile Picture of ${name}`,
+            fileLength: "999999999999"
+        }, { quoted: m });
+    } catch (err) {
+        await client.sendMessage(m.chat, {
+            image: { url: 'https://tinyurl.com/yx93l6da' },
+            caption: `⚠️ Profile picture not available.`,
+            fileLength: "999999999999"
+        }, { quoted: m });
+    }
+}
+break;
+
 
 //========================================================================================================================//		      
-case "list": case "vars": case "help":
-let vaa = `𝟏 Owner➣ 𝐆𝐞𝐭 𝗼𝘄𝗻𝗲𝗿  𝐜𝐨𝐧𝐭𝐚𝐜𝐭\n\n𝟐 𝐁𝐫𝐨𝐚𝐝𝐜𝐚𝐬𝐭➣ 𝐒𝐞𝐧𝐝𝐬 𝐦𝐞𝐬𝐬𝐚𝐠𝐞 𝐭𝐨 𝐚𝐥𝐥 𝐠𝐫𝐨𝐮𝐩𝐬\n\n𝟑 𝐉𝐨𝐢𝐧➣ 𝐭𝐚𝐠 𝐠𝐫𝐨𝐮𝐩 𝐥𝐢𝐧𝐤 𝐰𝐢𝐭𝐡 𝐣𝐨𝐢𝐧\n\n𝟒 𝐛𝐨𝐭𝐩𝐩➣ 𝐂𝐡𝐚𝐧𝐠𝐞 𝐛𝐨𝐭𝐬 𝐚𝐜𝐜𝐨𝐮𝐧𝐭 𝐝𝐩\n\n𝟓 𝐁𝐥𝐨𝐜𝐤➣ 𝐁𝐥𝐨𝐜𝐤 𝐭𝐡𝐞𝐦 𝐟𝐚𝐤𝐞 𝐟𝐫𝐢𝐞𝐧𝐝𝐬\n\n𝟔 𝐊𝐢𝐥𝐥➣ 𝐊𝐢𝐥𝐥𝐬 𝐠𝐫𝐨𝐮𝐩 𝐢𝐧 𝐬𝐞𝐜𝐨𝐧𝐝𝐬\n\n𝟕 𝐔𝐧𝐛𝐥𝐨𝐜𝐤➣ 𝐆𝐢𝐯𝐞 𝐭𝐡𝐞𝐦 𝐟𝐚𝐤𝐞 𝐟𝐫𝐢𝐞𝐧𝐝𝐬 𝐚 𝐬𝐞𝐜𝐨𝐧𝐝 𝐜𝐡𝐚𝐧𝐜𝐞\n\n𝟖 𝐒𝐞𝐭𝐯𝐚𝐫➣ 𝐒𝐞𝐭 𝐯𝐚𝐫𝐬 𝐢𝐧 𝐡𝐞𝐫𝐨𝐤𝐮\n\n𝟗 𝐒𝐭𝐢𝐜𝐤𝐞𝐫➣ 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐬 𝐚 𝐩𝐡𝐨𝐭𝐨 𝐨𝐫 𝐚 𝐬𝐡𝐨𝐫𝐭 𝐯𝐢𝐝𝐞𝐨 𝐭𝐨 𝐚 𝐬𝐭𝐢𝐜𝐤𝐞𝐫\n\n𝟏𝟎 𝐓𝐨𝐢𝐦𝐠➣ 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐬 𝐚 𝐬𝐭𝐢𝐜𝐤𝐞𝐫 𝐭𝐨 𝐚 𝐩𝐡𝐨𝐭𝐨\n\n𝟏𝟏 𝐏𝐥𝐚𝐲➣ 𝐆𝐞𝐭 𝐲𝐨𝐮𝐫 𝐟𝐚𝐯𝐨𝐫𝐢𝐭𝐞 𝐬𝐨𝐧𝐠\n\n𝟏𝟐 𝐖𝐡𝐚𝐭𝐬𝐨𝐧𝐠➣ 𝐠𝐞𝐭 𝐭𝐡𝐞 𝐭𝐢𝐭𝐥𝐞 𝐨𝐟 𝐭𝐡𝐞 𝐬𝐨𝐧𝐠\n\n𝟏𝟑 𝐘𝐭𝐬 ➣ 𝐆𝐞𝐭 𝐘𝐨𝐮𝐓𝐮𝐛𝐞 𝐯𝐢𝐝𝐞𝐨𝐬\n\n𝟏𝟒 𝐌𝐨𝐯𝐢𝐞➣ 𝐆𝐞𝐭 𝐲𝐨𝐮𝐫 𝐟𝐚𝐯𝐨𝐫𝐢𝐭𝐞 𝐦𝐨𝐯𝐢𝐞 𝐝𝐞𝐭𝐚𝐢𝐥𝐬\n\n𝟏𝟓 𝐌𝐢𝐱➣ 𝐂𝐨𝐦𝐛𝐢𝐧𝐞𝐬 +𝟐𝐞𝐦𝐨𝐣𝐢𝐬\n\n𝟏𝟔 𝐀𝐢-𝐢𝐦𝐠➣ 𝐆𝐞𝐭 𝐚𝐧 𝐀𝐢 𝐩𝐡𝐨𝐭𝐨\n\n𝟏𝟕 𝐆𝐩𝐭 ➣ 𝐇𝐞𝐫𝐞 𝐭𝐨 𝐚𝐧𝐬𝐰𝐞𝐫 𝐲𝐨𝐮𝐫 𝐪𝐮𝐞𝐬𝐭𝐢𝐨𝐧𝐬\n\n𝟏𝟖 𝐃𝐩➣ 𝐆𝐞𝐭𝐬 𝐚 𝐩𝐞𝐫𝐬𝐨𝐧 𝐝𝐩\n\n𝟏𝟗 𝐒𝐩𝐞𝐞𝐝 ➣ 𝐂𝐡𝐞𝐜𝐤𝐬 𝐛𝐨𝐭𝐬 𝐬𝐩𝐞𝐞𝐝\n\n𝟐𝟎 𝐀𝐥𝐢𝐯𝐞➣ 𝐂𝐡𝐞𝐜𝐤 𝐰𝐡𝐞𝐭𝐡𝐞𝐫 𝐭𝐡𝐞 𝐛𝐨𝐭 𝐢𝐬 𝐬𝐭𝐢𝐥𝐥 𝐤𝐢𝐜𝐤𝐢𝐧𝐠\n\n𝟐𝟏 𝐑𝐮𝐧𝐭𝐢𝐦𝐞➣ 𝐖𝐡𝐞𝐧 𝐝𝐢𝐝 𝐛𝐨𝐭 𝐬𝐭𝐚𝐫𝐭𝐞𝐝 𝐨𝐩𝐞𝐫𝐚𝐭𝐢𝐧𝐠\n\n𝟐𝟐 𝐒𝐜𝐫𝐢𝐩𝐭➣ 𝐆𝐞𝐭 𝐛𝐨𝐭 𝐬𝐜𝐫𝐢𝐩𝐭\n\n𝟐𝟑 𝐎𝐰𝐧𝐞𝐫  ➣ 𝐆𝐞𝐭 𝐨𝐰𝐧𝐞𝐫(𝐬) 𝐜𝐨𝐧𝐭𝐚𝐜𝐭\n\n𝟐𝟒 𝐕𝐚𝐫𝐬 ➣ 𝐒𝐞𝐞 𝐚𝐥𝐥 𝐯𝐚𝐫𝐢𝐚𝐛𝐥𝐞𝐬\n\n𝟐𝟓 𝐏𝐫𝐨𝐦𝐨𝐭𝐞➣ 𝐆𝐢𝐯𝐞𝐬 𝐨𝐧𝐞 𝐚𝐝𝐦𝐢𝐧 𝐫𝐨𝐥𝐞\n\n𝟐𝟔 𝐃𝐞𝐦𝐨𝐭𝐞➣ 𝐃𝐞𝐦𝐨𝐭𝐞𝐬 𝐟𝐫𝐨𝐦 𝐠𝐫𝐨𝐮𝐩 𝐚𝐝𝐦𝐢𝐧 𝐭𝐨 𝐚 𝐦𝐞𝐦𝐛𝐞𝐫\n\n𝟐𝟕 𝐃𝐞𝐥𝐞𝐭𝐞➣ 𝐃𝐞𝐥𝐞𝐭𝐞 𝐚 𝐦𝐞𝐬𝐬𝐚𝐠𝐞\n\n𝟐𝟖 𝐑𝐞𝐦𝐨𝐯𝐞/𝐤𝐢𝐜𝐤➣ 𝐊𝐢𝐜𝐤 𝐭𝐡𝐚𝐭 𝐭𝐞𝐫𝐫𝐨𝐫𝐢𝐬𝐭 𝐟𝐫𝐨𝐦 𝐚 𝐠𝐫𝐨𝐮𝐩\n\n𝟐𝟗 𝐅𝐨𝐫𝐞𝐢𝐠𝐧𝐞𝐫𝐬➣ 𝐆𝐞𝐭 𝐟𝐨𝐫𝐞𝐢𝐠𝐧 𝐧𝐮𝐦𝐛𝐞𝐫𝐬\n\n𝟑𝟎 𝐂𝐥𝐨𝐬𝐞➣ 𝐓𝐢𝐦𝐞 𝐟𝐨𝐫 𝐠𝐫𝐨𝐮𝐩 𝐦𝐞𝐦𝐛𝐞𝐫𝐬 𝐭𝐨 𝐭𝐚𝐤𝐞 𝐚 𝐛𝐫𝐞𝐚𝐤 𝐨𝐧𝐥𝐲 𝐚𝐝𝐦𝐢𝐧𝐬 𝐜𝐚𝐧 𝐜𝐡𝐚𝐭\n\n𝟑𝟏 𝐎𝐩𝐞𝐧 ➣ 𝐄𝐯𝐞𝐫𝐲𝐨𝐧𝐞 𝐜𝐚𝐧 𝐜𝐡𝐚𝐭 𝐢𝐧 𝐚 𝐠𝐫𝐨𝐮𝐩\n\n𝟑𝟐 𝐈𝐜𝐨𝐧➣ 𝐂𝐡𝐚𝐧𝐠𝐞 𝐠𝐫𝐨𝐮𝐩 𝐢𝐜𝐨𝐧\n\n𝟑𝟑 𝐒𝐮𝐛𝐣𝐞𝐜𝐭➣ 𝐂𝐡𝐚𝐧𝐠𝐞 𝐠𝐫𝐨𝐮𝐩 𝐬𝐮𝐛𝐣𝐞𝐜𝐭\n\n𝟑𝟒 𝐃𝐞𝐬𝐜➣ 𝐆𝐞𝐭 𝐠𝐫𝐨𝐮𝐩 𝐝𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧\n\n𝟑𝟓 𝐋𝐞𝐚𝐯𝐞➣ 𝐓𝐡𝐞 𝐠𝐫𝐨𝐮𝐩 𝐢𝐬 𝐛𝐨𝐫𝐢𝐧𝐠 ,𝐭𝐢𝐦𝐞 𝐟𝐨𝐫 𝐛𝐨𝐭 𝐭𝐨 𝐥𝐞𝐚𝐯𝐞\n\n𝟑𝟔 𝐓𝐚𝐠𝐚𝐥𝐥 ➣ 𝐓𝐚𝐠 𝐞𝐯𝐞𝐫𝐲𝐨𝐧𝐞 𝐢𝐧 𝐚 𝐠𝐫𝐨𝐮𝐩 𝐜𝐡𝐚𝐭\n\n𝟑𝟕 𝐇𝐢𝐝𝐞𝐭𝐚𝐠➣ 𝐀𝐭𝐭𝐞𝐧𝐭𝐢𝐨𝐧! 𝐀𝐭𝐭𝐞𝐧𝐭𝐢𝐨𝐧! 𝐬𝐨𝐦𝐞𝐨𝐧𝐞 𝐡𝐚𝐬 𝐬𝐨𝐦𝐞𝐭𝐡𝐢𝐧𝐠 𝐭𝐨 𝐬𝐚𝐲\n\n𝟑𝟖 𝐑𝐞𝐯𝐨𝐤𝐞 ➣ 𝐑𝐞𝐬𝐞𝐭 𝐠𝐫𝐨𝐮𝐩 𝐥𝐢𝐧𝐤`
-reply(vaa)
+case "list":
+case "vars":
+case "help": {
+  const vaa = `*🧠 GenesisBot ROOAR Command List:*\n
+𝟏. *Owner* ➣ Get the owner contact
+𝟐. *Broadcast* ➣ Send message to all groups
+𝟑. *Join* ➣ Join group using invite link
+𝟒. *Botpp* ➣ Change bot's profile photo
+𝟓. *Block* ➣ Block annoying users
+𝟔. *Kill* ➣ Leave all groups instantly
+𝟕. *Unblock* ➣ Unblock a user
+𝟖. *Setvar* ➣ Set Heroku ENV variable
+𝟗. *Sticker* ➣ Photo/short video to sticker
+𝟏𝟎. *Toimg* ➣ Sticker to photo
+𝟏𝟏. *Play* ➣ Download a song by name
+𝟏𝟐. *Whatsong* ➣ Identify song from audio
+𝟏𝟑. *Yts* ➣ Search YouTube
+𝟏𝟒. *Movie* ➣ Get movie details
+𝟏𝟓. *Mix* ➣ Merge two emojis
+𝟏𝟔. *Ai-img* ➣ Generate AI image
+𝟏𝟕. *Gpt* ➣ Ask AI anything
+𝟏𝟖. *Dp* ➣ Fetch user profile picture
+𝟏𝟗. *Speed* ➣ Test bot's speed
+𝟐𝟎. *Alive* ➣ Check bot status
+𝟐𝟏. *Runtime* ➣ Bot uptime
+𝟐𝟐. *Script* ➣ View bot source code
+𝟐𝟑. *Vars* ➣ Show all config vars
+𝟐𝟒. *Promote* ➣ Make member an admin
+𝟐𝟓. *Demote* ➣ Remove admin role
+𝟐𝟔. *Delete* ➣ Delete a message
+𝟐𝟕. *Remove/Kick* ➣ Kick someone
+𝟐𝟖. *Foreigners* ➣ List foreign numbers
+𝟐𝟗. *Close* ➣ Close group to members
+𝟑𝟎. *Open* ➣ Open group chat
+𝟑𝟏. *Icon* ➣ Change group picture
+𝟑𝟐. *Subject* ➣ Change group name
+𝟑𝟑. *Desc* ➣ Change group description
+𝟑𝟒. *Leave* ➣ Bot leaves group
+𝟑𝟓. *Tagall* ➣ Mention everyone
+𝟑𝟔. *Hidetag* ➣ Mention everyone silently
+𝟑𝟕. *Revoke* ➣ Reset group invite link
+
+_💡 Tip: Use commands with prefix (e.g. .play, .gpt)_`;
+
+  reply(vaa);
+}
 break;
+
 
 //========================================================================================================================//		      
   case "vv": case "retrieve":{
@@ -4201,13 +4254,13 @@ if (!m.quoted) return m.reply("quote a viewonce message eh")
     if (quotedMessage.imageMessage) {
       let imageCaption = quotedMessage.imageMessage.caption;
       let imageUrl = await client.downloadAndSaveMediaMessage(quotedMessage.imageMessage);
-      client.sendMessage(m.chat, { image: { url: imageUrl }, caption: `Retrieved by Raven!\n${imageCaption}`}, { quoted: m });
+      client.sendMessage(m.chat, { image: { url: imageUrl }, caption: `Retrieved by ROAAR!\n${imageCaption}`}, { quoted: m });
     }
 
     if (quotedMessage.videoMessage) {
       let videoCaption = quotedMessage.videoMessage.caption;
       let videoUrl = await client.downloadAndSaveMediaMessage(quotedMessage.videoMessage);
-      client.sendMessage(m.chat, { video: { url: videoUrl }, caption: `Retrieved by Raven!\n${videoCaption}`}, { quoted: m });
+      client.sendMessage(m.chat, { video: { url: videoUrl }, caption: `Retrieved by ROAAR!\n${videoCaption}`}, { quoted: m });
     }
       }
 	break;
@@ -4222,13 +4275,13 @@ if (!m.quoted) return m.reply("Hurrahhh")
     if (quotedMessage.imageMessage) {
       let imageCaption = quotedMessage.imageMessage.caption;
       let imageUrl = await client.downloadAndSaveMediaMessage(quotedMessage.imageMessage);
-      client.sendMessage(client.user.id, { image: { url: imageUrl }, caption: `Retrieved by Raven!\n${imageCaption}`}, { quoted: m });
+      client.sendMessage(client.user.id, { image: { url: imageUrl }, caption: `Retrieved by ROAAR!\n${imageCaption}`}, { quoted: m });
     }
 
     if (quotedMessage.videoMessage) {
       let videoCaption = quotedMessage.videoMessage.caption;
       let videoUrl = await client.downloadAndSaveMediaMessage(quotedMessage.videoMessage);
-      client.sendMessage(client.user.id, { video: { url: videoUrl }, caption: `Retrieved by Raven!\n${videoCaption}`}, { quoted: m });
+      client.sendMessage(client.user.id, { video: { url: videoUrl }, caption: `Retrieved by ROAAR!\n${videoCaption}`}, { quoted: m });
     }
       }
 	break;
@@ -4441,25 +4494,25 @@ if (!text) return m.reply("𝗣𝗿𝗼𝘃𝗶𝗱𝗲 𝗮 𝘃𝗮𝗹𝗶�
  break;
 
 //========================================================================================================================//		      
-	case 'runtime':
-		let raven = `  ${runtime(process.uptime())}`
-                client.sendMessage(m.chat, {
-                    text: raven,
-                    contextInfo: {
-                        externalAdReply: {
-                            showAdAttribution: true,
-                            title: '𝗥𝗔𝗩𝗘𝗡-𝗕𝗢𝗧',
-                            body: 'https://github.com/HunterGenesis2/RAVEN-BOT',
-                            thumbnailUrl: 'https://files.catbox.moe/duv8ac.jpg',
-                            sourceUrl: 'https://github.com/HunterGenesis2/RAVEN-BOT',
-                            mediaType: 1,
-                            renderLargerThumbnail: true
-                        }
-                    }
-                }, {
-                    quoted: m
-                })
-                break;
+	case 'runtime': {
+    let uptimeText = `⏱️ *Bot Uptime:* ${runtime(process.uptime())}`;
+    client.sendMessage(m.chat, {
+        text: uptimeText,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: 'ROAAR MD',
+                body: 'GenesisBot - Full WhatsApp AI Experience',
+                thumbnailUrl: 'https://files.catbox.moe/duv8ac.jpg',
+                sourceUrl: 'https://github.com/kira509/ROOAR',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    }, { quoted: m });
+}
+break;
+
 
 //========================================================================================================================//		      
   case "apk":
@@ -4475,7 +4528,7 @@ if (!text) return m.reply("𝗣𝗿𝗼𝘃𝗶𝗱𝗲 𝗮 𝘃𝗮𝗹𝗶�
                 mimetype: "application/vnd.android.package-archive",
                 contextInfo: {
         externalAdReply: {
-          title: `RAVEN-BOT`,
+          title: `GENESIS-BOT`,
           body: `${tylor.BK9.name}`,
           thumbnailUrl: `${tylor.BK9.icon}`,
           sourceUrl: `${tylor.BK9.dllink}`,
@@ -4588,7 +4641,7 @@ if (!text) return m.reply("No emojis provided ? ")
    fs.unlinkSync(media); 
    if (err) throw err 
    let buffer = fs.readFileSync(mokaya); 
-   client.sendMessage(m.chat, { image: buffer, caption: `𝗖𝗼𝗻𝘃𝗲𝗿𝘁𝗲𝗱 𝗯𝘆 𝗥𝗮𝘃𝗲𝗻-𝗕𝗼𝘁`}, { quoted: m }) 
+   client.sendMessage(m.chat, { image: buffer, caption: `𝗖𝗼𝗻𝘃𝗲𝗿𝘁𝗲𝗱 𝗯𝘆 GENESIS-𝗕𝗼𝘁�`}, { quoted: m }) 
    fs.unlinkSync(mokaya); 
     }); 
     } 
@@ -4664,7 +4717,7 @@ if (!text) return m.reply("No emojis provided ? ")
          let res = groups.map(v => v.id) 
          reply(` Broadcasting in ${res.length} Group Chat, in ${res.length * 1.5} seconds`) 
          for (let i of res) { 
-             let txt = `𝗥𝗔𝗩𝗘𝗡-𝗕𝗢𝗧 𝗕𝗥𝗢𝗔𝗗𝗖𝗔𝗦𝗧\n\n🀄 Message: ${text}\n\nAuthor: ${pushname}` 
+             let txt = `GENESIS-𝗕𝗢𝗧 𝗕𝗥𝗢𝗔𝗗𝗖𝗔𝗦𝗧\n\n🀄 Message: ${text}\n\nAuthor: ${pushname}` 
              await client.sendMessage(i, { 
                  image: { 
                      url: menulink
@@ -4679,7 +4732,7 @@ if (!text) return m.reply("No emojis provided ? ")
 //========================================================================================================================//		      
  case "gemini": {
     try {
-        if (!text) return m.reply("This is Raven, an AI using Gemini APIs to process text, provide yr query");
+        if (!text) return m.reply("This is ROAAR, an AI using Gemini APIs to process text, provide yr query");
     
         const { default: Gemini } = await import('gemini-ai');
 
@@ -4722,26 +4775,60 @@ if (!text) return m.reply("No emojis provided ? ")
  break;
  
 //========================================================================================================================//
-case "block": { 
- if (!Owner) throw NotOwner; 
- if (!m.quoted) throw `𝗧𝗮𝗴 𝘀𝗼𝗺𝗲𝗼𝗻𝗲!`  
- let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-	 if (users == "254114660061@s.whatsapp.net") return m.reply("𝗜 𝗰𝗮𝗻𝗻𝗼𝘁 𝗯𝗹𝗼𝗰𝗸 𝗺𝘆 𝗢𝘄𝗻𝗲𝗿 😡");
-		  if (users  == client.decodeJid(client.user.id)) throw '𝗜 𝗰𝗮𝗻𝗻𝗼𝘁 𝗯𝗹𝗼𝗰𝗸 𝗺𝘆𝘀𝗲𝗹𝗳 𝗶𝗱𝗶𝗼𝘁 😡';
- await client.updateBlockStatus(users, 'block'); 
- m.reply (`𝗕𝗹𝗼𝗰𝗸𝗲𝗱 𝘀𝘂𝗰𝗰𝗲𝘀𝗳𝘂𝗹𝗹𝘆!`); 
- } 
- break; 
+case "block": {
+  if (!Owner) throw NotOwner;
+
+  if (!m.quoted && (!m.mentionedJid || m.mentionedJid.length === 0) && !text)
+    return m.reply("𝗧𝗮𝗴 𝗼𝗿 𝗺𝗲𝗻𝘁𝗶𝗼𝗻 𝘀𝗼𝗺𝗲𝗼𝗻𝗲 𝘁𝗼 𝗯𝗹𝗼𝗰𝗸!");
+
+  let users = m.mentionedJid[0]
+    ? m.mentionedJid[0]
+    : m.quoted
+    ? m.quoted.sender
+    : text
+    ? text.replace(/[^0-9]/g, "") + "@s.whatsapp.net"
+    : null;
+
+  if (!users) return m.reply("𝗡𝗼 𝘃𝗮𝗹𝗶𝗱 𝘂𝘀𝗲𝗿 𝗳𝗼𝘂𝗻𝗱.");
+
+  if (users === "254738701209@s.whatsapp.net")
+    return m.reply("𝗜 𝗰𝗮𝗻𝗻𝗼𝘁 𝗯𝗹𝗼𝗰𝗸 𝗺𝘆 𝗢𝘄𝗻𝗲𝗿 😡");
+
+  if (users === client.decodeJid(client.user.id))
+    throw "𝗜 𝗰𝗮𝗻𝗻𝗼𝘁 𝗯𝗹𝗼𝗰𝗸 𝗺𝘆𝘀𝗲𝗹𝗳 𝗶𝗱𝗶𝗼𝘁 😡";
+
+  await client.updateBlockStatus(users, "block");
+  m.reply(`✅ 𝗕𝗹𝗼𝗰𝗸𝗲𝗱 @${users.split("@")[0]} 𝘀𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆!`, {
+    mentions: [users],
+  });
+}
+break;
+
 
 //========================================================================================================================//		      
- case "unblock": { 
- if (!Owner) throw NotOwner; 
- if (!m.quoted) throw `𝗧𝗮𝗴 𝘀𝗼𝗺𝗲𝗼𝗻𝗲!`; 
- let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'; 
- await client.updateBlockStatus(users, 'unblock'); 
- m.reply (`𝗨𝗻𝗯𝗹𝗼𝗰𝗸𝗲𝗱 𝘀𝘂𝗰𝗰𝗲𝘀𝗳𝘂𝗹𝗹𝘆✅!`); 
- } 
- break;
+ case "unblock": {
+  if (!Owner) throw NotOwner;
+
+  if (!m.quoted && (!m.mentionedJid || m.mentionedJid.length === 0) && !text)
+    return m.reply("𝗣𝗹𝗲𝗮𝘀𝗲 𝗺𝗲𝗻𝘁𝗶𝗼𝗻 𝗼𝗿 𝗿𝗲𝗽𝗹𝘆 𝘁𝗼 𝗮 𝘂𝘀𝗲𝗿 𝘁𝗼 𝘂𝗻𝗯𝗹𝗼𝗰𝗸.");
+
+  let users = m.mentionedJid[0]
+    ? m.mentionedJid[0]
+    : m.quoted
+    ? m.quoted.sender
+    : text
+    ? text.replace(/[^0-9]/g, "") + "@s.whatsapp.net"
+    : null;
+
+  if (!users) return m.reply("𝗡𝗼 𝘃𝗮𝗹𝗶𝗱 𝘂𝘀𝗲𝗿 𝗳𝗼𝘂𝗻𝗱.");
+
+  await client.updateBlockStatus(users, "unblock");
+
+  m.reply(`✅ 𝗨𝗻𝗯𝗹𝗼𝗰𝗸𝗲𝗱 @${users.split("@")[0]} 𝘀𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆!`, {
+    mentions: [users],
+  });
+}
+break;
 
 //========================================================================================================================//		      
           case 'join': { 
