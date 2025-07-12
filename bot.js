@@ -6,11 +6,15 @@ const {
 } = require("@whiskeysockets/baileys");
 const pino = require("pino");
 
+let sock;
+
 async function startSocket() {
+  if (sock) return "Already paired or running";
+
   const { state, saveCreds } = await useMultiFileAuthState("auth");
   const { version } = await fetchLatestBaileysVersion();
 
-  const sock = makeWASocket({
+  sock = makeWASocket({
     version,
     logger: pino({ level: "silent" }),
     auth: state,
@@ -26,7 +30,10 @@ async function startSocket() {
     if (connection === "close") {
       const shouldReconnect = lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut;
       console.log("❌ Disconnected. Reconnecting:", shouldReconnect);
-      if (shouldReconnect) await startSocket();
+      if (shouldReconnect) {
+        sock = null;
+        await startSocket();
+      }
     }
 
     if (connection === "open") {
@@ -34,7 +41,6 @@ async function startSocket() {
     }
   });
 
-  // Generate pairing code
   const code = await sock.requestPairingCode("+254738701209");
   console.log("🔗 Pair code:", code);
   return code;
