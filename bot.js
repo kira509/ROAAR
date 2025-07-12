@@ -5,6 +5,25 @@ const {
   fetchLatestBaileysVersion,
 } = require("@whiskeysockets/baileys");
 const pino = require("pino");
+const puppeteer = require("puppeteer");
+
+// ✅ Puppeteer override: ensures Baileys uses Docker-safe flags
+globalThis.puppeteer = puppeteer;
+puppeteer.launch = (options = {}) =>
+  require("puppeteer").launch({
+    headless: true,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-accelerated-2d-canvas",
+      "--no-first-run",
+      "--no-zygote",
+      "--single-process",
+      "--disable-gpu",
+    ],
+    ...options,
+  });
 
 let sock;
 
