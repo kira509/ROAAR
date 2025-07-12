@@ -1,77 +1,52 @@
-// --- RENDER KEEP-ALIVE HTTP SERVER ---
-const http = require('http');
-const PORT = process.env.PORT || 3000;
+const { Client } = require("whatsapp-web.js");
+const express = require("express");
+const fs = require("fs");
+const qrcode = require("qrcode");
 
-http.createServer((req, res) => {
-  if (req.url === '/healthz') {
-    res.writeHead(200, { 'Content-Type': 'text/plain' }).end('OK');
-  } else {
-    res.writeHead(404).end('Not Found');
-  }
-}).listen(PORT, () => {
-  console.log(`🌐 HTTP server running on port ${PORT}`);
+const SESSION_FILE_PATH = "./session.json";
+let sessionData;
+
+if (fs.existsSync(SESSION_FILE_PATH)) {
+  sessionData = require(SESSION_FILE_PATH);
+}
+
+const client = new Client({
+  puppeteer: {
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  },
+  authStrategy: sessionData
+    ? undefined
+    : undefined,
 });
 
-// --- GENESISBOT CORE ---
-const { Boom } = require("@hapi/boom");
-const makeWASocket = require("@whiskeysockets/baileys").default;
-const {
-    useMultiFileAuthState,
-    DisconnectReason,
-    fetchLatestBaileysVersion,
-} = require("@whiskeysockets/baileys");
-const pino = require("pino");
-const fs = require("fs");
-const path = require("path");
+client.on("qr", async (qr) => {
+  console.log("⚠️ Pair Code (Scan or Render It)");
+  qrcode.toString(qr, { type: "terminal" }, (err, url) => {
+    console.log(url);
+  });
+});
 
-const startGenesisBot = async () => {
-    const { version, isLatest } = await fetchLatestBaileysVersion();
-    const { state, saveCreds } = await useMultiFileAuthState("auth");
+client.on("authenticated", (session) => {
+  console.log("✅ Authenticated");
+  fs.writeFileSync(SESSION_FILE_PATH, JSON.stringify(session));
+});
 
-    const sock = makeWASocket({
-        logger: pino({ level: "silent" }),
-        printQRInTerminal: true,
-        auth: state,
-        browser: ["GenesisBot", "Chrome", "1.0.0"],
-        version,
-    });
+client.on("ready", () => {
+  console.log("🎉 GenesisBot is ready!");
+});
 
-    // connection status
-    sock.ev.on("connection.update", async (update) => {
-        const { connection, lastDisconnect } = update;
+client.on("message", async (msg) => {
+  if (msg.body.toLowerCase() === "!ping") {
+    await msg.reply("🏓 Pong from GenesisBot!");
+  }
+});
 
-        if (connection === "close") {
-            const shouldReconnect =
-                lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut;
-            console.log("❌ Connection closed. Reconnecting: ", shouldReconnect);
+client.initialize();
 
-            if (shouldReconnect) {
-                startGenesisBot();
-            }
-        } else if (connection === "open") {
-            console.log("✅ GenesisBot is now connected!");
-        }
-    });
-
-    // listen for messages
-    sock.ev.on("messages.upsert", async ({ messages, type }) => {
-        if (type !== "notify") return;
-        const msg = messages[0];
-        if (!msg.message) return;
-
-        const sender = msg.key.remoteJid;
-        const messageText = msg.message.conversation || msg.message.extendedTextMessage?.text;
-
-        console.log(`📩 Message from ${sender}: ${messageText}`);
-
-        if (messageText === "!ping") {
-            await sock.sendMessage(sender, { text: "🏓 Pong!" });
-        }
-    });
-
-    // save session credentials
-    sock.ev.on("creds.update", saveCreds);
-};
-
-startGenesisBot();
+// Keep-alive server for Render
+const app = express();
+const PORT = process.env.PORT || 3000;
+app.get("/", (req, res) => res.send("GenesisBot is alive!"));
+app.listen(PORT, () => console.log(`🌐 Server running on port ${PORT}`));
 
