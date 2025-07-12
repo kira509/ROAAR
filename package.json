@@ -1,19 +1,25 @@
 {
   "name": "genesisbot",
   "version": "1.0.0",
-  "description": "GenesisBot - WhatsApp Multi-Device Bot (Pair Code Login)",
+  "description": "GenesisBot - WhatsApp Multi-Device Bot",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": ["genesisbot", "whatsapp-web.js", "whatsapp", "paircode", "genesis"],
+  "keywords": [
+    "genesisbot",
+    "whatsapp-bot",
+    "baileys",
+    "multi-device",
+    "whatsapp",
+    "ai-bot"
+  ],
   "author": "Kira509",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2",
-    "whatsapp-web.js": "^1.23.0",
-    "puppeteer": "^21.3.8",
-    "qrcode": "^1.5.1"
+    "@whiskeysockets/baileys": "git+https://github.com/McrayNick/Baileys.git",
+    "@hapi/boom": "^10.0.0",
+    "pino": "^7.0.5"
   }
 }
-
