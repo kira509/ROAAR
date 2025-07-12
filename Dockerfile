@@ -1,6 +1,7 @@
-FROM node:18-slim
+# Use Node.js 20 base image
+FROM node:20-slim
 
-# Install git and Chromium dependencies
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
   git \
   wget \
@@ -23,12 +24,17 @@ RUN apt-get update && apt-get install -y \
   chromium \
   && rm -rf /var/lib/apt/lists/*
 
+# Set working directory
 WORKDIR /app
 
+# Copy project files
 COPY . .
 
+# Install NPM dependencies
 RUN npm install
 
+# Expose port for health checks
 EXPOSE 3000
 
+# Start the bot
 CMD ["node", "index.js"]
