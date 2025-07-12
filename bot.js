@@ -7,12 +7,10 @@ const {
 const pino = require("pino");
 const puppeteer = require("puppeteer");
 
-// ✅ Override global puppeteer for Baileys
+// ✅ Puppeteer override with Docker-safe args
 globalThis.puppeteer = puppeteer;
-
-// ✅ Force Docker-safe puppeteer launch options
-puppeteer.launch = async (options = {}) => {
-  return require("puppeteer").launch({
+puppeteer.launch = (options = {}) =>
+  require("puppeteer").launch({
     headless: true,
     args: [
       "--no-sandbox",
@@ -24,10 +22,8 @@ puppeteer.launch = async (options = {}) => {
       "--single-process",
       "--disable-gpu",
     ],
-    executablePath: process.env.CHROMIUM_PATH || "/usr/bin/chromium",
     ...options,
   });
-};
 
 let sock;
 
@@ -51,7 +47,8 @@ async function startSocket() {
     const { connection, lastDisconnect } = update;
 
     if (connection === "close") {
-      const shouldReconnect = lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut;
+      const shouldReconnect =
+        lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut;
       console.log("❌ Disconnected. Reconnecting:", shouldReconnect);
       if (shouldReconnect) {
         sock = null;
@@ -64,14 +61,19 @@ async function startSocket() {
     }
   });
 
-  try {
-    const code = await sock.requestPairingCode("+254738701209");
-    console.log("🔗 Pair code:", code);
-    return code;
-  } catch (err) {
-    console.error("❌ Bot failed to start:", err);
-    sock = null;
-  }
+  // ✅ Wait for WebSocket to be ready
+  await new Promise((resolve) => {
+    const waitSocket = setInterval(() => {
+      if (sock.ws && sock.ws.readyState === 1) {
+        clearInterval(waitSocket);
+        resolve();
+      }
+    }, 500);
+  });
+
+  const code = await sock.requestPairingCode("+254738701209");
+  console.log("🔗 Pair code:", code);
+  return code;
 }
 
 module.exports = { startSocket };
