@@ -7,10 +7,12 @@ const {
 const pino = require("pino");
 const puppeteer = require("puppeteer");
 
-// ✅ Puppeteer override: ensures Baileys uses Docker-safe flags
+// ✅ Override global puppeteer for Baileys
 globalThis.puppeteer = puppeteer;
-puppeteer.launch = (options = {}) =>
-  require("puppeteer").launch({
+
+// ✅ Force Docker-safe puppeteer launch options
+puppeteer.launch = async (options = {}) => {
+  return require("puppeteer").launch({
     headless: true,
     args: [
       "--no-sandbox",
@@ -22,8 +24,10 @@ puppeteer.launch = (options = {}) =>
       "--single-process",
       "--disable-gpu",
     ],
+    executablePath: process.env.CHROMIUM_PATH || "/usr/bin/chromium",
     ...options,
   });
+};
 
 let sock;
 
@@ -60,9 +64,14 @@ async function startSocket() {
     }
   });
 
-  const code = await sock.requestPairingCode("+254738701209");
-  console.log("🔗 Pair code:", code);
-  return code;
+  try {
+    const code = await sock.requestPairingCode("+254738701209");
+    console.log("🔗 Pair code:", code);
+    return code;
+  } catch (err) {
+    console.error("❌ Bot failed to start:", err);
+    sock = null;
+  }
 }
 
 module.exports = { startSocket };
