@@ -1,3 +1,18 @@
+// --- RENDER KEEP-ALIVE HTTP SERVER ---
+const http = require('http');
+const PORT = process.env.PORT || 3000;
+
+http.createServer((req, res) => {
+  if (req.url === '/healthz') {
+    res.writeHead(200, { 'Content-Type': 'text/plain' }).end('OK');
+  } else {
+    res.writeHead(404).end('Not Found');
+  }
+}).listen(PORT, () => {
+  console.log(`🌐 HTTP server running on port ${PORT}`);
+});
+
+// --- GENESISBOT CORE ---
 const { Boom } = require("@hapi/boom");
 const makeWASocket = require("@whiskeysockets/baileys").default;
 const {
@@ -28,7 +43,7 @@ const startGenesisBot = async () => {
         if (connection === "close") {
             const shouldReconnect =
                 lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut;
-            console.log("Connection closed. Reconnecting: ", shouldReconnect);
+            console.log("❌ Connection closed. Reconnecting: ", shouldReconnect);
 
             if (shouldReconnect) {
                 startGenesisBot();
@@ -59,3 +74,4 @@ const startGenesisBot = async () => {
 };
 
 startGenesisBot();
+
