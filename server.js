@@ -5,7 +5,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
-  res.send("✅ GenesisBot Express server is live.");
+  res.send(`
+    <html>
+      <body style="text-align:center;margin-top:20%;font-family:sans-serif">
+        <h1>✅ GenesisBot Server Live</h1>
+        <p>Click below to generate a WhatsApp pair code:</p>
+        <a href="/pair" style="font-size:2rem;">➡️ Get Pair Code</a>
+      </body>
+    </html>
+  `);
 });
 
 app.get("/pair", async (req, res) => {
@@ -26,8 +34,7 @@ app.get("/pair", async (req, res) => {
   }
 });
 
-// Auto-start bot once on server boot
-startSocket().catch(err => console.error("❌ Bot failed to start:", err));
+// ❌ Removed: Automatic startSocket() call on boot
 
 app.listen(PORT, () => {
   console.log(`🌐 Express server running at http://localhost:${PORT}`);
