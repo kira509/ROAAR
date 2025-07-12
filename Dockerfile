@@ -1,10 +1,12 @@
 # Use Node.js 20 base image
 FROM node:20-slim
 
-# Install system dependencies (including Chromium)
+# Install Chromium dependencies for Puppeteer
 RUN apt-get update && apt-get install -y \
-  git \
   wget \
+  curl \
+  unzip \
+  git \
   ca-certificates \
   fonts-liberation \
   libappindicator3-1 \
@@ -24,20 +26,17 @@ RUN apt-get update && apt-get install -y \
   chromium \
   && rm -rf /var/lib/apt/lists/*
 
-# ✅ Explicitly tell Puppeteer where to find Chromium
-ENV CHROMIUM_PATH=/usr/bin/chromium
-
 # Set working directory
 WORKDIR /app
 
-# Copy project files
+# Copy all project files
 COPY . .
 
-# Install NPM dependencies
+# Install dependencies
 RUN npm install
 
-# Expose port for health checks or UI
+# Expose port
 EXPOSE 3000
 
-# Start the server (Express + bot)
+# Start server
 CMD ["node", "server.js"]
