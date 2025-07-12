@@ -2,10 +2,10 @@
   "name": "genesisbot",
   "version": "1.0.0",
   "description": "GenesisBot - WhatsApp Multi-Device Bot",
-  "main": "index.js",
+  "main": "server.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "keywords": [
     "genesisbot",
@@ -20,6 +20,7 @@
   "dependencies": {
     "@whiskeysockets/baileys": "git+https://github.com/McrayNick/Baileys.git",
     "@hapi/boom": "^10.0.0",
-    "pino": "^7.0.5"
+    "pino": "^7.0.5",
+    "express": "^4.19.2"
   }
 }
