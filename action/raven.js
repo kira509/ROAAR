@@ -26,7 +26,7 @@ const Client = new Genius.Client(""); // Optional key
 const { downloadYouTube, downloadSoundCloud, downloadSpotify, searchYouTube, searchSoundCloud, searchSpotify } = require('../action/wee');
 const { TelegraPh, UploadFileUgu, webp2mp4File, floNime } = require('../lib/ravenupload');
 const { Configuration, OpenAI } = require("openai");
-const { menu, menulink, autoread, mode, antidel, antitag, appname, herokuapi, gptdm, botname, antibot, prefix, author, packname, mycode, admin, botAdmin, dev, group, bad, owner, NotOwner, antilink, antilinkall, wapresence, badwordkick } = require("../set.js");
+const { menu, menulink, autoread, mode, antidel, antitag, appname, gptdm, botname, antibot, prefix, author, packname, mycode, admin, botAdmin, dev, group, bad, owner, NotOwner, antilink, antilinkall, wapresence, badwordkick } = require("../set.js");
 const { smsg, runtime, fetchUrl, isUrl, processTime, formatp, tanggal, formatDate, getTime,  sleep, generateProfilePicture, clockString, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom } = require('../lib/ravenfunc');
 const { exec, spawn, execSync } = require("child_process");
 
@@ -1093,44 +1093,44 @@ m.reply("_Please wait your download is in progress_");
   break;
 
 //========================================================================================================================//		      
-	      case "update": case "redeploy": {
-		      const axios = require('axios');
-
-		if(!Owner) throw NotOwner;
-		     if (!appname || !herokuapi) {
-            await m.reply("It looks like the Heroku app name or API key is not set. Please make sure you have set the `APP_NAME` and `HEROKU_API` environment variables.");
-            return;
-        }
-
-        async function redeployApp() {
-            try {
-                const response = await axios.post(
-                    `https://api.heroku.com/apps/${appname}/builds`,
-                    {
-                        source_blob: {
-                            url: "https://github.com/HunterGenesis2/RAVEN-BOT/tarball/main",
-                        },
-                    },
-                    {
-                        headers: {
-                            Authorization: `Bearer ${herokuapi}`,
-                            Accept: "application/vnd.heroku+json; version=3",
-                        },
-                    }
-                );
-
-                await m.reply("Your bot is undergoing a ruthless upgrade, hold tight for the next 2 minutes as the redeploy executes! Once done, you’ll have the freshest version of *RAVEN-BOT* unleashed upon you.");
-                console.log("Build details:", response.data);
-            } catch (error) {
-                const errorMessage = error.response?.data || error.message;
-                await m.reply(`Failed to update and redeploy. Please check if you have set the Heroku API key and Heroku app name correctly.`);
-                console.error("Error triggering redeploy:", errorMessage);
-            }
-        }
-
-        redeployApp();
-    }
-	break;
+	     // case "update": case "redeploy": {
+		//      const axios = require('axios');
+//
+//		if(!Owner) throw NotOwner;
+//		     if (!appname || !herokuapi) {
+  //          await m.reply("It looks like the Heroku app name or API key is not set. Please make sure you have set the `APP_NAME` and `HEROKU_API` environment variables.");
+    //        return;
+      //  }
+//
+  //      async function redeployApp() {
+    //        try {
+      //          const response = await axios.post(
+        //            `https://api.heroku.com/apps/${appname}/builds`,
+          //          {
+            //            source_blob: {
+              //              url: "https://github.com/HunterGenesis2/RAVEN-BOT/tarball/main",
+                //        },
+                  //  },
+                    //{
+                      //  headers: {
+                        //    Authorization: `Bearer ${herokuapi}`,
+                          //  Accept: "application/vnd.heroku+json; version=3",
+                        //},
+                    //}
+                //);
+//
+  //              await m.reply("Your bot is undergoing a ruthless upgrade, hold tight for the next 2 minutes as the redeploy executes! Once done, you’ll have the freshest version of *RAVEN-BOT* unleashed upon you.");
+    //            console.log("Build details:", response.data);
+      //      } catch (error) {
+        //        const errorMessage = error.response?.data || error.message;
+          //      await m.reply(`Failed to update and redeploy. Please check if you have set the Heroku API key and Heroku app name correctly.`);
+            //    console.error("Error triggering redeploy:", errorMessage);
+            //}
+        //}
+//
+  //      redeployApp();
+    //}
+	//break;
 
 //========================================================================================================================//		      
 		      case "credits": 
@@ -3457,19 +3457,19 @@ m.reply("𝗣𝗲𝗻𝗱𝗶𝗻𝗴 𝗣𝗮𝗿𝘁𝗶𝗰𝗶𝗽𝗮𝗻�
           break;
 
 //========================================================================================================================//		      
-       case "getvar": 
- if (!Owner) throw NotOwner;  
-     const heroku = new Heroku({  
-         token: herokuapi, // Replace 'heroku' with your actual Heroku token 
-     });  
-     let baseUR = "/apps/" + appname;  
-     let h9 = await heroku.get(baseUR + '/config-vars');  
-     let stoy = '*𝗕𝗲𝗹𝗼𝘄 𝗔𝗿𝗲 𝗛𝗲𝗿𝗼𝗸𝘂 𝗩𝗮𝗿𝗶𝗮𝗯𝗹𝗲𝘀 𝗙𝗼𝗿 ROAAR-𝗠𝗗:*\n\n';  
-     for ( vrt in h9) { // Added 'const' to declare 'vr' 
-         stoy += vrt + '=' + h9[vrt] + '\n\n'; // Fixed variable name 'str' to 'sto' 
-     }  
-     reply(stoy); 
-            break;
+ //      case "getvar": 
+ //if (!Owner) throw NotOwner;  
+   //  const heroku = new Heroku({  
+     //    token: herokuapi, // Replace 'heroku' with your actual Heroku token 
+     //});  
+     //let baseUR = "/apps/" + appname;  
+     //let h9 = await heroku.get(baseUR + '/config-vars');  
+     //let stoy = '*𝗕𝗲𝗹𝗼𝘄 𝗔𝗿𝗲 𝗛𝗲𝗿𝗼𝗸𝘂 𝗩𝗮𝗿𝗶𝗮𝗯𝗹𝗲𝘀 𝗙𝗼𝗿 ROAAR-𝗠𝗗:*\n\n';  
+     //for ( vrt in h9) { // Added 'const' to declare 'vr' 
+       //  stoy += vrt + '=' + h9[vrt] + '\n\n'; // Fixed variable name 'str' to 'sto' 
+     //}  
+     //reply(stoy); 
+       //     break;
 
 //========================================================================================================================//		      
 case 'restart':  
@@ -4749,21 +4749,21 @@ if (!text) return m.reply("No emojis provided ? ")
  break;
 
 //========================================================================================================================//		      
-        case "setvar": 
- if (!Owner) throw NotOwner;  
- if(!text.split('=')[1]) return reply('Incorrect Usage:\nProvide the key and value correctly\nExample: setvar AUTOVIEW_STATUS=TRUE')  
- const herok = new Heroku({  
-            token: herokuapi,  
-          });  
-          let baseURI = "/apps/" + appname;  
- await herok.patch(baseURI + "/config-vars", {  
-            body: {  
-                    [text.split('=')[0]]: text.split('=')[1],  
-            },  
- });  
-          await reply(`✅ The variable ${text.split('=')[0]} = ${text.split('=')[1]} has been set Successfuly.\nWait 20s for changes to effect!`);  
+      //  case "setvar": 
+ //if (!Owner) throw NotOwner;  
+ //if(!text.split('=')[1]) return reply('Incorrect Usage:\nProvide the key and value correctly\nExample: setvar AUTOVIEW_STATUS=TRUE')  
+ //const herok = new Heroku({  
+   //         token: herokuapi,  
+    //      });  
+      //    let baseURI = "/apps/" + appname;  
+ //await herok.patch(baseURI + "/config-vars", {  
+   //         body: {  
+     //               [text.split('=')[0]]: text.split('=')[1],  
+       //     },  
+ //});  
+   //       await reply(`✅ The variable ${text.split('=')[0]} = ${text.split('=')[1]} has been set Successfuly.\nWait 20s for changes to effect!`);  
   
- break;
+ //break;
 		      
 //========================================================================================================================//	
  case "dlt": case "dil": { 
