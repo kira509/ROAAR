@@ -1,12 +1,11 @@
 # Use Node.js 20 base image
 FROM node:20-slim
 
-# Install Chromium dependencies for Puppeteer
+# Install system dependencies for Puppeteer/Chromium
 RUN apt-get update && apt-get install -y \
-  wget \
-  curl \
-  unzip \
+  chromium \
   git \
+  wget \
   ca-certificates \
   fonts-liberation \
   libappindicator3-1 \
@@ -23,16 +22,15 @@ RUN apt-get update && apt-get install -y \
   libxdamage1 \
   libxrandr2 \
   xdg-utils \
-  chromium \
   && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
 
-# Copy all project files
+# Copy project files
 COPY . .
 
-# Install dependencies
+# Install NPM dependencies
 RUN npm install
 
 # Expose port
