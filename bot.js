@@ -7,7 +7,7 @@ const {
 const pino = require("pino");
 const puppeteer = require("puppeteer");
 
-// ✅ Puppeteer override with Docker-safe args
+// ✅ Puppeteer override (Render/Heroku safe)
 globalThis.puppeteer = puppeteer;
 puppeteer.launch = (options = {}) =>
   require("puppeteer").launch({
@@ -28,7 +28,10 @@ puppeteer.launch = (options = {}) =>
 let sock;
 
 async function startSocket() {
-  if (sock) return "Already paired or running";
+  if (sock) {
+    console.log("✅ Already paired or running");
+    return "Already paired or running";
+  }
 
   const { state, saveCreds } = await useMultiFileAuthState("auth");
   const { version } = await fetchLatestBaileysVersion();
@@ -61,19 +64,18 @@ async function startSocket() {
     }
   });
 
-  // ✅ Wait for WebSocket to be ready
-  await new Promise((resolve) => {
-    const waitSocket = setInterval(() => {
-      if (sock.ws && sock.ws.readyState === 1) {
-        clearInterval(waitSocket);
-        resolve();
-      }
-    }, 500);
-  });
-
-  const code = await sock.requestPairingCode("+254738701209");
-  console.log("🔗 Pair code:", code);
-  return code;
+  try {
+    const code = await sock.requestPairingCode("+254738701209");
+    console.log("🔗 Pair code:", code);
+    return code;
+  } catch (err) {
+    console.error("❌ Bot failed to start:", err);
+    return null;
+  }
 }
 
-module.exports = { startSocket };
+function isConnected() {
+  return !!sock?.user;
+}
+
+module.exports = { startSocket, isConnected };
