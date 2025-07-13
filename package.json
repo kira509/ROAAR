@@ -24,7 +24,8 @@
 "@hapi/boom": "^10.0.0",
 "express": "^4.19.2",
 "pino": "^8.0.0",
-"puppeteer": "^22.8.2"
+"puppeteer": "^22.8.2",
+"qrcode-terminal": "^0.12.0"
 }
 }
 
