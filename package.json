@@ -5,8 +5,8 @@
   "main": "bot.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node bot.js"
-  },
+  "start": "rm -rf auth && node server.js"
+},
   "keywords": [
     "genesisbot",
     "whatsapp-bot",
