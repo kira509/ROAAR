@@ -71,7 +71,7 @@ https://github.com/kira509/ROAAR
 ### 2. 🔑 Pair on Render
 
 <p align="center">
-  <a href="https://pairing-rooar.onrender.com"><img src="https://img.shields.io/badge/Get%20Pairing%20Code-%2317C3B2?style=for-the-badge&logo=render&logoColor=white"/></a>
+  <a href="https://havoc-roaar.onrender.com"><img src="https://img.shields.io/badge/Get%20Pairing%20Code-%2317C3B2?style=for-the-badge&logo=render&logoColor=white"/></a>
 </p>
 
 ### 3. ☁️ Deploy to Heroku (Optional)
