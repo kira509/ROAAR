@@ -1,19 +1,30 @@
+
 {
-  "name": "genesis-havoc-bot",
-  "version": "1.0.0",
-  "description": "Genesis Havoc WhatsApp Bot using Puppeteer and Baileys",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "keywords": ["whatsapp", "bot", "baileys", "genesis", "puppeteer"],
-  "author": "Genesis ",
-  "license": "MIT",
-  "dependencies": {
-    "@whiskeysockets/baileys": "^6.6.0",
-    "express": "^4.18.2",
-    "pino": "^8.17.0",
-    "puppeteer": "^21.3.8",
-    "qrcode": "^1.5.1"
-  }
+"name": "havoc-roaar",
+"version": "1.0.0",
+"description": "GenesisBot - WhatsApp Multi-Device Bot with Puppeteer Pair Code",
+"main": "bot.js",
+"type": "commonjs",
+"scripts": {
+"start": "rm -rf auth && node server.js"
+},
+"keywords": [
+"genesisbot",
+"whatsapp-bot",
+"baileys",
+"puppeteer",
+"pair-code",
+"multi-device",
+"ai-bot"
+],
+"author": "Kira509",
+"license": "MIT",
+"dependencies": {
+"@whiskeysockets/baileys": "^6.6.0",
+"@hapi/boom": "^10.0.0",
+"express": "^4.19.2",
+"pino": "^8.0.0",
+"puppeteer": "^22.8.2"
 }
+}
+
