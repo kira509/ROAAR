@@ -1,14 +1,16 @@
 const express = require("express");
 const { startSocket, isConnected, getQrSvg } = require("./bot");
-const app = express();
 
+const app = express();
 const PORT = process.env.PORT || 3000;
+
 let pairCode = null;
 
 app.get("/", (req, res) => {
   res.send("🌍 GenesisBot is live");
 });
 
+// 📟 Generate Pair Code manually
 app.get("/generate", async (req, res) => {
   if (isConnected()) {
     return res.json({ status: "connected" });
@@ -17,6 +19,7 @@ app.get("/generate", async (req, res) => {
   res.json({ code: pairCode || null });
 });
 
+// 🔢 View Pair Code (optional for pair-code login)
 app.get("/pair", (req, res) => {
   res.send(`
     <body style="background:#0d0d0d;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;font-family:sans-serif">
@@ -41,12 +44,13 @@ app.get("/pair", (req, res) => {
   `);
 });
 
-// 🆕 Show QR code as image
+// 📸 Show QR Code as SVG image
 app.get("/qr", async (req, res) => {
   const svg = await getQrSvg();
-  res.set("Content-Type", "image/svg+xml").send(svg);
+  res.set("Content-Type", "image/svg+xml").send(svg || "❌ QR not generated yet.");
 });
 
+// 🔍 Show Bot Connection Status
 app.get("/status", (req, res) => {
   res.send(isConnected() ? "✅ Bot is connected to WhatsApp!" : "❌ Bot not connected.");
 });
