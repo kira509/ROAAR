@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "GenesisBot - WhatsApp Multi-Device Bot with Puppeteer Pair Code",
   "main": "bot.js",
-  "type": "commonjs",
+  "type": "module", // ✅ switched from commonjs to module
   "scripts": {
-  "start": "rm -rf auth && node server.js"
-},
+    "start": "rm -rf auth && node server.js"
+  },
   "keywords": [
     "genesisbot",
     "whatsapp-bot",
