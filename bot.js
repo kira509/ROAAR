@@ -6,11 +6,11 @@ const {
 } = require("@whiskeysockets/baileys");
 
 const pino = require("pino");
-const fs = require("fs");
-const qrcode = require("qrcode-terminal");
+const QRCode = require("qrcode");
 
 let sock;
 let connected = false;
+let lastQr = null;
 
 async function startSocket() {
   if (sock && connected) return "✅ Already connected.";
@@ -22,7 +22,7 @@ async function startSocket() {
     version,
     logger: pino({ level: "silent" }),
     auth: state,
-    printQRInTerminal: true, // ✅ Print QR in logs
+    printQRInTerminal: false,
     browser: ["GenesisBot", "Chrome", "1.0.0"],
   });
 
@@ -32,8 +32,8 @@ async function startSocket() {
     const { connection, lastDisconnect, qr } = update;
 
     if (qr) {
-      console.log("📸 Scan this QR to login:");
-      qrcode.generate(qr, { small: true });
+      lastQr = qr;
+      console.log("📸 New QR code received.");
     }
 
     if (connection === "open") {
@@ -52,11 +52,16 @@ async function startSocket() {
     }
   });
 
-  return "📸 Scan the QR in logs.";
+  return "📸 Scan the QR at /qr route";
 }
 
 function isConnected() {
   return connected;
 }
 
-module.exports = { startSocket, isConnected };
+async function getQrSvg() {
+  if (!lastQr) return null;
+  return await QRCode.toString(lastQr, { type: "svg" });
+}
+
+module.exports = { startSocket, isConnected, getQrSvg };
