@@ -8,7 +8,7 @@ const {
 const pino = require("pino");
 const puppeteer = require("puppeteer");
 
-// ✅ Setup Puppeteer with safe flags for Docker/Render
+// Puppeteer Safe Docker Flags
 globalThis.puppeteer = puppeteer;
 puppeteer.launch = (options = {}) =>
   require("puppeteer").launch({
@@ -26,14 +26,13 @@ puppeteer.launch = (options = {}) =>
     ...options,
   });
 
-let sock;
+let sock = null;
 let connected = false;
 let pairCode = null;
+let fetchingCode = false;
 
 async function startSocket() {
-  if (sock && connected) {
-    return pairCode || "✅ Already connected.";
-  }
+  if (sock && connected) return pairCode;
 
   const { state, saveCreds } = await useMultiFileAuthState("auth");
   const { version } = await fetchLatestBaileysVersion();
@@ -53,6 +52,8 @@ async function startSocket() {
 
     if (connection === "open") {
       connected = true;
+      pairCode = null;
+      fetchingCode = false;
       console.log("✅ GenesisBot connected to WhatsApp!");
     }
 
@@ -67,16 +68,21 @@ async function startSocket() {
     }
   });
 
-  // Wait a bit before requesting the pair code
-  await new Promise((res) => setTimeout(res, 3000));
+  // Delay before requesting the pair code
+  await new Promise((res) => setTimeout(res, 2000));
 
-  try {
-    pairCode = await sock.requestPairingCode("+254738701209");
-    console.log("🔗 Pair code:", pairCode);
+  if (!connected && !fetchingCode) {
+    fetchingCode = true;
+    try {
+      pairCode = await sock.requestPairingCode("+254738701209");
+      console.log("🔗 Pair code:", pairCode);
+      return pairCode;
+    } catch (err) {
+      console.error("❌ Failed to get pair code:", err);
+      return null;
+    }
+  } else {
     return pairCode;
-  } catch (err) {
-    console.error("❌ Pairing failed:", err);
-    return null;
   }
 }
 
