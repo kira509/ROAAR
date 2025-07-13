@@ -1,47 +1,56 @@
 const express = require("express");
-const { startSocket, isConnected } = require("./bot");
+const { startSocket, isConnected, getQrSvg } = require("./bot");
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-let lastPairCode = null;
+let pairCode = null;
 
 app.get("/", (req, res) => {
-  res.send("🌍 GenesisBot is live.");
+  res.send("🌍 GenesisBot is live");
 });
 
-app.get("/status", (req, res) => {
-  res.send(isConnected() ? "✅ Bot is connected to WhatsApp!" : "❌ Bot not connected.");
-});
-
-// 👇 GET: Generate new pair code manually
 app.get("/generate", async (req, res) => {
   if (isConnected()) {
-    return res.json({ status: "connected", code: "Already Connected" });
+    return res.json({ status: "connected" });
   }
-  const code = await startSocket();
-  if (code) lastPairCode = code;
-  res.json({ status: code ? "ok" : "error", code: code || null });
+  pairCode = await startSocket();
+  res.json({ code: pairCode || null });
 });
 
-// 👁️ View current pair code
 app.get("/pair", (req, res) => {
   res.send(`
-    <body style="background:#0d0d0d;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;text-align:center">
+    <body style="background:#0d0d0d;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;font-family:sans-serif">
       <h2>🔗 WhatsApp Pair Code</h2>
-      <h1 id="code" style="font-size:3em;">${lastPairCode || "❌ No code yet"}</h1>
-      <p>Use this in WhatsApp > Link Device > Use Pair Code</p>
-      <button onclick="getCode()" style="margin-top:20px;padding:10px 20px;font-size:16px;background:#4CAF50;border:none;color:white;border-radius:6px;">Generate New Code</button>
+      <h1 id="code" style="font-size:3em;">${pairCode || "❌ No code yet"}</h1>
+      <p>Use this in WhatsApp &gt; Link Device &gt; Enter Code</p>
+      <button onclick="generateCode()" style="padding:10px 20px;font-size:16px;margin-top:20px;background:#4CAF50;border:none;color:white;border-radius:8px;">Get Pair Code</button>
       <script>
-        async function getCode() {
+        async function generateCode() {
           const res = await fetch('/generate');
           const data = await res.json();
-          document.getElementById('code').innerText = data.code || "❌ Failed to fetch code";
+          if (data.status === 'connected') {
+            document.getElementById('code').innerText = '✅ Already Connected';
+          } else if (data.code) {
+            document.getElementById('code').innerText = data.code;
+          } else {
+            document.getElementById('code').innerText = '❌ Failed to generate';
+          }
         }
       </script>
     </body>
   `);
 });
 
-app.listen(PORT, () => {
-  console.log(`🌐 Server running at http://localhost:${PORT}`);
+// 🆕 Show QR code as image
+app.get("/qr", async (req, res) => {
+  const svg = await getQrSvg();
+  res.set("Content-Type", "image/svg+xml").send(svg);
 });
+
+app.get("/status", (req, res) => {
+  res.send(isConnected() ? "✅ Bot is connected to WhatsApp!" : "❌ Bot not connected.");
+});
+
+app.listen(PORT, () =>
+  console.log(`🌐 Express server running at http://localhost:${PORT}`)
+);
