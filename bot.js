@@ -6,11 +6,12 @@ const {
 } = require("@whiskeysockets/baileys");
 
 const pino = require("pino");
-const QRCode = require("qrcode");
+const fs = require("fs");
+const qrcode = require("qrcode");
 
 let sock;
 let connected = false;
-let latestQR = null;
+let latestQr = null;
 
 async function startSocket() {
   if (sock && connected) return "✅ Already connected.";
@@ -32,13 +33,14 @@ async function startSocket() {
     const { connection, lastDisconnect, qr } = update;
 
     if (qr) {
-      latestQR = qr;
-      console.log("📸 Scan this QR to login:");
+      console.log("📸 New QR code received");
+      latestQr = qr;
     }
 
     if (connection === "open") {
       connected = true;
-      console.log("✅ GenesisBot connected!");
+      latestQr = null;
+      console.log("✅ GenesisBot connected to WhatsApp!");
     }
 
     if (connection === "close") {
@@ -60,8 +62,8 @@ function isConnected() {
 }
 
 async function getQrSvg() {
-  if (!latestQR) return null;
-  return await QRCode.toString(latestQR, { type: "svg" });
+  if (!latestQr) return null;
+  return await qrcode.toString(latestQr, { type: "svg" });
 }
 
 module.exports = { startSocket, isConnected, getQrSvg };
