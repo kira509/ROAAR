@@ -47,7 +47,11 @@ app.get("/pair", (req, res) => {
 // 📸 Show QR Code as SVG image
 app.get("/qr", async (req, res) => {
   const svg = await getQrSvg();
-  res.set("Content-Type", "image/svg+xml").send(svg || "❌ QR not generated yet.");
+  if (svg) {
+    res.set("Content-Type", "image/svg+xml").send(svg);
+  } else {
+    res.send("❌ QR not generated yet.");
+  }
 });
 
 // 🔍 Show Bot Connection Status
