@@ -1,5 +1,7 @@
 const express = require("express");
-const { startSocket, isConnected, getQrSvg } = require("./bot"); // ✅ Include getQrSvg
+const fs = require("fs");
+const path = require("path");
+const { startSocket, isConnected } = require("./bot");
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -9,16 +11,21 @@ app.get("/", (req, res) => {
   res.send("🌍 GenesisBot is live");
 });
 
-// 🔒 Manually trigger pair code (if not already connected)
+// 🔒 Manually trigger QR or Pair Code
 app.get("/generate", async (req, res) => {
   if (isConnected()) {
     return res.json({ status: "connected" });
   }
-  pairCode = await startSocket();
-  res.json({ code: pairCode || null });
+  const code = await startSocket();
+  if (code && code.startsWith("XXX-")) {
+    pairCode = code;
+    res.json({ code });
+  } else {
+    res.json({ code: "📸 Scan the QR code at /qr" });
+  }
 });
 
-// 🔓 View pair code as plain text
+// 🔓 Pair code view UI
 app.get("/pair", (req, res) => {
   res.send(`
     <body style="background:#0d0d0d;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;font-family:sans-serif">
@@ -43,22 +50,17 @@ app.get("/pair", (req, res) => {
   `);
 });
 
-// 📸 Render live QR code SVG
-app.get("/qr", async (req, res) => {
-  const svg = await getQrSvg();
-  if (svg) {
-    res.set("Content-Type", "image/svg+xml").send(svg);
+// 📸 QR code SVG render
+app.get("/qr", (req, res) => {
+  const qrPath = path.join(__dirname, "qr.svg");
+  if (fs.existsSync(qrPath)) {
+    res.setHeader("Content-Type", "image/svg+xml");
+    fs.createReadStream(qrPath).pipe(res);
   } else {
-    res.send(`
-      <body style="background:#111;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;font-family:sans-serif">
-        <h2>❌ QR Code Not Ready</h2>
-        <p>Start pairing first by opening <a href="/generate" style="color:#4CAF50;">/generate</a></p>
-      </body>
-    `);
+    res.send("❌ No QR generated yet.");
   }
 });
 
-// ✅ Bot connection status
 app.get("/status", (req, res) => {
   res.send(isConnected() ? "✅ Bot is connected to WhatsApp!" : "❌ Bot not connected.");
 });
