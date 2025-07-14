@@ -10,7 +10,7 @@ const QRCode = require("qrcode");
 
 let sock;
 let connected = false;
-let lastQr = null;
+let latestQR = null;
 
 async function startSocket() {
   if (sock && connected) return "✅ Already connected.";
@@ -22,7 +22,7 @@ async function startSocket() {
     version,
     logger: pino({ level: "silent" }),
     auth: state,
-    printQRInTerminal: false,
+    printQRInTerminal: true,
     browser: ["GenesisBot", "Chrome", "1.0.0"],
   });
 
@@ -32,8 +32,8 @@ async function startSocket() {
     const { connection, lastDisconnect, qr } = update;
 
     if (qr) {
-      lastQr = qr;
-      console.log("📸 New QR code received.");
+      latestQR = qr;
+      console.log("📸 Scan this QR to login:");
     }
 
     if (connection === "open") {
@@ -52,7 +52,7 @@ async function startSocket() {
     }
   });
 
-  return "📸 Scan the QR at /qr route";
+  return "📸 Scan the QR code at /qr";
 }
 
 function isConnected() {
@@ -60,8 +60,8 @@ function isConnected() {
 }
 
 async function getQrSvg() {
-  if (!lastQr) return null;
-  return await QRCode.toString(lastQr, { type: "svg" });
+  if (!latestQR) return null;
+  return await QRCode.toString(latestQR, { type: "svg" });
 }
 
 module.exports = { startSocket, isConnected, getQrSvg };
